@@ -8,9 +8,11 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
 import android.widget.ImageView
+import androidx.core.app.ActivityCompat.startPostponedEnterTransition
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.shofna.R
+import com.example.shofna.presentation.MainActivity
 import java.util.*
 
 class ResourceUtil {
@@ -51,7 +53,10 @@ class ResourceUtil {
         Glide.with(context).applyDefaultRequestOptions(
             RequestOptions()
                 .placeholder(R.drawable.noimage)
-                .error(R.drawable.noimage)).load(url).into(imag)
+                .error(R.drawable.noimage)).load(url)
+
+
+            .into(imag)
     }
 
 

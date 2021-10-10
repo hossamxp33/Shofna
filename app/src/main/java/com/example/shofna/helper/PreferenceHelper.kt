@@ -16,34 +16,19 @@ class PreferenceHelper(private val context: Context) {
         private const val CART_ARRAY = "CART_ARRAY"
         private const val IsEnabled = "IsEnabled"
         private val arrPackage: ArrayList<String> = ArrayList<String>()
+        private const val Username = "username"
 
 
+    }
 
-        fun addItemtoDownLoaded(item_id: Int) {
-            val gson = Gson()
-            val json = app_prefs!!.getString(CART_ARRAY, "")
-            val type = object : TypeToken<List<String?>?>() {}.type
-            var arrayList = gson.fromJson<MutableList<String?>>(json, type)
-            if (arrayList == null) arrayList = ArrayList()
-            val editor = app_prefs!!.edit()
-            arrayList.add(item_id.toString())
-            val newdata = gson.toJson(arrayList, type)
-            editor.putString(CART_ARRAY, newdata)
-            editor.apply()
-            editor.commit()
-        }
+    fun getUsername(): String? {
+        return app_prefs!!.getString(Username, "")
+    }
 
-        fun retriveDownloaded(): ArrayList<String>? {
-            arrPackage.clear()
-            val gson = Gson()
-            val json = app_prefs!!.getString(CART_ARRAY, "")
-            val type = object : TypeToken<List<String?>?>() {}.type
-            val arrayList = gson.fromJson<List<String>>(json, type)
-            if (arrayList == null) return null else arrPackage.addAll(arrayList)
-            return arrPackage
-        }
-
-
+    fun setUsername(username: String?) {
+        val edit = app_prefs!!.edit()
+        edit.putString(Username, username)
+        edit.apply()
     }
 
     init {

@@ -58,6 +58,7 @@ open class HomeFragment : Fragment() {
 
         val context = context as MainActivity
          view.viewmodel = viewModel
+
         viewModel.GetMainData(context)
 
           var mypager = view.pagerlayout.pager
@@ -105,16 +106,24 @@ open class HomeFragment : Fragment() {
 
         viewModel.loadingLivedat.observe(viewLifecycleOwner,
             Observer { loading -> shimmer_view_container1.setVisibility(if (loading!!) View.VISIBLE else View.GONE) })
+
         SwitchingCategories()
+
         return view.root
     }
 
     fun SwitchingCategories(){
         viewModel.ItemIndex.observe(requireActivity(),androidx.lifecycle.Observer {
+            try {
+                datArray.clear()
 
-            datArray.clear()
-            datArray.addAll(MainData!!.items.get(it).items)
-            adapter!!.notifyDataSetChanged()
+                datArray.addAll(MainData!!.items.get(it).items)
+
+                adapter!!.notifyDataSetChanged()
+            }catch (e:Exception){
+
+            }
+
 
 
         })

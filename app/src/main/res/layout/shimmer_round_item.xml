@@ -21,7 +21,7 @@
             android:id="@+id/image_shimmer"
             android:layout_width="60dp"
             android:layout_height="@dimen/placeholder_image"
-            android:background="@drawable/circle_layout"
+            android:background="@drawable/shimmer_raduis"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -51,7 +51,7 @@
             android:id="@+id/image_shimmer2"
             android:layout_width="60dp"
             android:layout_height="@dimen/placeholder_image"
-            android:background="@drawable/circle_layout"
+            android:background="@drawable/shimmer_raduis"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -80,7 +80,7 @@
             android:id="@+id/image_shimmer3"
             android:layout_width="60dp"
             android:layout_height="@dimen/placeholder_image"
-            android:background="@drawable/circle_layout"
+            android:background="@drawable/shimmer_raduis"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -110,7 +110,7 @@
             android:id="@+id/image_shimmer4"
             android:layout_width="60dp"
             android:layout_height="@dimen/placeholder_image"
-            android:background="@drawable/circle_layout"
+            android:background="@drawable/shimmer_raduis"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -141,7 +141,7 @@
             android:id="@+id/image_shimmer5"
             android:layout_width="60dp"
             android:layout_height="@dimen/placeholder_image"
-            android:background="@drawable/circle_layout"
+            android:background="@drawable/shimmer_raduis"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

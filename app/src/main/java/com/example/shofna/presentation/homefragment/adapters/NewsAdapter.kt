@@ -1,6 +1,7 @@
 package com.example.shofna.presentation.homefragment.adapters
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -8,16 +9,18 @@ import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shofna.R
 import com.example.shofna.databinding.NewsAdapterBinding
-import com.example.shofna.helper.PreferenceHelper
 import com.example.shofna.model.ItemX
 import com.example.shofna.presentation.ClickHandler
 import com.example.shofna.presentation.MainActivity
+import com.example.shofna.presentation.newsdetailsactivity.News_Details_Activity
+
+
+import androidx.core.app.ActivityOptionsCompat
 
 
 class NewsAdapter(var activity: FragmentActivity, var menu: List<ItemX>): RecyclerView.Adapter<NewsAdapter.CustomViewHolder>() {
 
         private val menusData: List<ItemX> = menu
-
 
         override fun getItemCount(): Int {
             return menusData.size
@@ -34,6 +37,21 @@ class NewsAdapter(var activity: FragmentActivity, var menu: List<ItemX>): Recycl
         override fun onBindViewHolder(p0: CustomViewHolder, p1: Int) {
             p0.bind(p1,activity,menu.get(p1))
 
+             p0.binding.cardView.setOnClickListener {
+
+
+                 val intent = Intent(this.activity, News_Details_Activity::class.java)
+
+                 intent.putExtra("data",menu.get(p1))
+                 intent.putExtra("id",menu.get(p1).id)
+
+                 val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                     activity,
+                     p0.binding.appCompatImageView, "news_image")
+
+                 (activity).startActivityForResult(intent, 1000, options.toBundle());
+
+             }
 
         }
 
@@ -41,7 +59,7 @@ class NewsAdapter(var activity: FragmentActivity, var menu: List<ItemX>): Recycl
 
 
         class CustomViewHolder(
-            private val binding: NewsAdapterBinding
+             val binding: NewsAdapterBinding
 
         ) : RecyclerView.ViewHolder(binding.root) {
             fun bind(position:Int, context: Context?, data: ItemX) {

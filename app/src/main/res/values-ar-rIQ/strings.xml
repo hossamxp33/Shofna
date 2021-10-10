@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Shofna</string>
+    <string name="main">الرئيسية</string>
+    <string name="favourite">المفضلة</string>
+    <string name="more">الاعدادات</string>
+    <string name="cart">العربة</string>
+    <string name="ar">ar</string>
+    <string name="related">أخبار ذات صلة</string>
+
+</resources>

@@ -56,7 +56,7 @@
                 android:layout_height="90dp"
                 app:imageResource="@{data.photo}"
                 android:scaleType="fitXY"
-
+                android:transitionName="news_image"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -72,6 +72,17 @@
             android:text="@{data.name}"
             app:layout_constraintStart_toEndOf="@+id/card_view"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/created"
+            style="@style/SearchTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+             app:datetext="@{data.created}"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toEndOf="@+id/card_view"
+            app:layout_constraintTop_toBottomOf="@+id/name" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guide3"

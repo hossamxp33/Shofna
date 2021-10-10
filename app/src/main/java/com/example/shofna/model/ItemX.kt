@@ -9,6 +9,7 @@ data class ItemX(
     var id: Int,
     var ishowen: Int,
     var name: String,
+    var created: String,
     var photo: String,
     var price: Int,
     var subcategory_id: Int
