@@ -17,7 +17,7 @@
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="colorPrimaryDark">@color/purple_200</item>
+        <item name="colorPrimaryDark">@color/activity</item>
         <item name="colorSecondary">@color/purple_200</item>
         <item name="colorSecondaryVariant">@color/purple_700</item>
         <item name="colorOnSecondary">@color/purple_200</item>

@@ -26,6 +26,8 @@ object ApiClient {
                 val builder = originalRequest.newBuilder()
                 builder.addHeader("Accept", "application/json")
                 builder.addHeader("Content-Type", "application/json")
+                builder.addHeader("lang", "ar")
+
                 val newRequest = builder.build()
                 chain.proceed(newRequest)
             }
