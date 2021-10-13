@@ -6,7 +6,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.shofna.DataRepo.DataRepo
 import com.example.shofna.model.Details
+import com.example.shofna.model.LoginData
 import com.example.shofna.model.MainView
+import com.example.shofna.model.User
 
 import io.reactivex.disposables.CompositeDisposable
 
@@ -22,6 +24,8 @@ class MainViewModel : ViewModel(){
 
     var MainDataLD: MutableLiveData<MainView>? = null
     var DetailsDataLD: MutableLiveData<Details>? = null
+    var LoginDataLD: MutableLiveData<LoginData>? = null
+    var RegisterDataLD: MutableLiveData<LoginData>? = null
 
 
     var ItemIndex = MutableLiveData<Int>()
@@ -37,7 +41,8 @@ class MainViewModel : ViewModel(){
         MainDataLD = MutableLiveData()
 
         DetailsDataLD= MutableLiveData()
-
+        LoginDataLD= MutableLiveData()
+        RegisterDataLD = MutableLiveData()
         ItemIndex = MutableLiveData<Int>()
         title = MutableLiveData<String>()
     }
@@ -54,15 +59,32 @@ class MainViewModel : ViewModel(){
 
     }
 
+    fun GetLoginData(username:String,password:String) {
+
+        DateRepoCompnay.Login(username,password,LoginDataLD,errorLivedat,loadingLivedat)
+
+    }
 
 
+    fun GetRegisterData(username:String,password:String,repassword:String) {
+
+        DateRepoCompnay.Register(username,password,repassword,LoginDataLD,errorLivedat,loadingLivedat)
+
+    }
+
+    fun addUser(user: User) {
+
+            DateRepoCompnay.registerUser(user)
+
+    }
     fun SwtichingCategories(index: Int) {
         ItemIndex.postValue(index)
     }
 
-    fun SetRelatedIndex(index: Int) {
-        ItemIndex.postValue(index)
-    }
+
+
+
+
     override fun onCleared() {
         super.onCleared()
         mCompositeDisposable.dispose()

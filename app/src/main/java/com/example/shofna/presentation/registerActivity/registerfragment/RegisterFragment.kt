@@ -1,8 +1,67 @@
 package com.example.shofna.presentation.registerActivity.registerfragment
 
+import android.content.Intent
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import com.example.shofna.R
+import com.example.shofna.helper.PreferenceHelper
+import com.example.shofna.model.User
+import com.example.shofna.presentation.MainActivity
+import com.example.shofna.presentation.homefragment.viewmodel.MainViewModel
+import kotlinx.android.synthetic.main.login_fragment.view.*
+import kotlinx.android.synthetic.main.login_fragment.view.password
+import kotlinx.android.synthetic.main.login_fragment.view.username
+import kotlinx.android.synthetic.main.menu_fragment.view.*
+import kotlinx.android.synthetic.main.register_fragment.view.*
 
 
-class RegisterFragment: Fragment() {
+class RegisterFragment: Fragment() { private val viewModel: MainViewModel by lazy {
+    ViewModelProviders.of(this).get(MainViewModel::class.java)
+}
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
+        val view = inflater.inflate(R.layout.register_fragment, container, false)
+
+        view.register.setOnClickListener {
+            val user = User()
+            user.username = view.username?.text.toString()
+            user.password = view.password?.text.toString()
+            user.repassword = view.re_password?.text.toString()
+            viewModel.addUser(user)
+        }
+
+        viewModel.RegisterDataLD?.observe(requireActivity() , Observer {
+
+            if (it.token == null){
+                Toast.makeText(context , "خطأ في كلمة المرور او كلمة السر", Toast.LENGTH_SHORT).show()
+
+            }else {
+
+                PreferenceHelper.setUsername(it.username)
+                PreferenceHelper.setToken(it.token,context)
+                PreferenceHelper.setUserId(it.userid!!)
+
+                val intent = Intent(requireActivity(), MainActivity::class.java)
+
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+
+                startActivity(intent)
+            }
+
+        })
+
+        viewModel.errorLivedat.observe(requireActivity(), Observer {
+            Toast.makeText(context , "خطأ في كلمة المرور او كلمة السر", Toast.LENGTH_SHORT).show()
+
+        })
+        return view
+    }
 
 }

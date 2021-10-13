@@ -4,7 +4,6 @@ import android.os.Build
 import android.os.Bundle
 import android.text.Html
 import android.text.method.ScrollingMovementMethod
-import android.transition.TransitionInflater
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -13,18 +12,12 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.shofna.R
 import com.example.shofna.databinding.NewsDetailsFragmentBinding
-import com.example.shofna.helper.PreferenceHelper
 import com.example.shofna.helper.ResourceUtil
 import com.example.shofna.helper.setDatetext
-import com.example.shofna.model.Details
 import com.example.shofna.model.ItemX
-import com.example.shofna.model.MainView
-import com.example.shofna.model.Related
-import com.example.shofna.presentation.homefragment.Main_Adapter
 import com.example.shofna.presentation.homefragment.viewmodel.MainViewModel
 import com.example.shofna.presentation.newsdetailsactivity.adapter.Related_News_Adapter
 import kotlinx.android.synthetic.main.news_details_fragment.*
-import kotlinx.android.synthetic.main.recycles_layout.view.*
 
 class News_Details_Activity  :  AppCompatActivity(){
 

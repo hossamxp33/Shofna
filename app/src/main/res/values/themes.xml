@@ -76,6 +76,7 @@
     </style>
     <style name="TabLayoutStyle" parent="Base.Widget.Design.TabLayout">
         <item name="android:textSize">14dp</item>
+        <item name="android:fontFamily">@font/cocon_next_arabic</item>
 
 
     </style>

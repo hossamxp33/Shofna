@@ -6,11 +6,11 @@ import android.os.Bundle
 import android.view.View
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.BlendModeColorFilterCompat
 import androidx.core.graphics.BlendModeCompat
 import com.example.shofna.R
+import com.example.shofna.helper.PreferenceHelper
 import com.example.shofna.presentation.registerActivity.tabs_adapters.TabsPagerAdapter
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -19,8 +19,8 @@ import kotlinx.android.synthetic.main.register_activity.*
 class RegisterActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+      PreferenceHelper(this)
         setContentView(R.layout.register_activity)
-
 
 
         tab_layout.setBackgroundColor(ContextCompat.getColor(this, R.color.light_gray))

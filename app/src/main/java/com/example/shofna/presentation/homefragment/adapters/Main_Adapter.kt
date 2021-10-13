@@ -5,8 +5,6 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.FragmentActivity
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shofna.presentation.ClickHandler
 import com.example.shofna.R
@@ -23,7 +21,6 @@ class Main_Adapter(
     var viewModel: MainViewModel, var context: Context?, var data: List<Item>
 ) : RecyclerView.Adapter<CustomViewHolder>() {
 
-    var preferenceHelper : PreferenceHelper ?=null
 
     var row_index : Int ? = 0
 
@@ -45,7 +42,6 @@ class Main_Adapter(
             viewModel.SwtichingCategories(p1)
 
 
-            preferenceHelper?.setUsername(data.get(p1).name)
             // notifyItemChanged(p1);
 
             row_index = p1

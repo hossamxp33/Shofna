@@ -1,7 +1,9 @@
 package com.example.shofna.helper
 
 import android.app.Activity
+import android.content.Context
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
@@ -64,4 +66,12 @@ fun setimageStock(imageView: AppCompatImageView, resource: String?) {
 fun setImageResource(imageView: AppCompatImageView, resource: String?) {
     Glide.with(imageView.context).load(resource).into(imageView)
 }
-
+fun checkUserLogin(context: Context): Boolean {
+    if (!PreferenceHelper.getToken().isNullOrEmpty() )
+        return true
+    else
+    {
+        Toast.makeText(context,"يجب تسجيل الدخول اولا", Toast.LENGTH_SHORT).show()
+        return  false
+    }
+}

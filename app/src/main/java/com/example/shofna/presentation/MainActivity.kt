@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        PreferenceHelper(this)
+       PreferenceHelper(this)
         ResourceUtil().changeLang("ar",this)
         supportFragmentManager.beginTransaction()
             .setCustomAnimations(R.anim.ttb, 0, 0, 0)
