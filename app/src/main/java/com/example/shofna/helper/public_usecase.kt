@@ -2,6 +2,7 @@ package com.example.shofna.helper
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatImageView
@@ -10,6 +11,8 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.example.shofna.R
+import com.example.shofna.presentation.MainActivity
+import com.example.shofna.presentation.registerActivity.RegisterActivity
 import www.sanju.motiontoast.MotionToast
 import java.lang.Long
 import java.text.SimpleDateFormat
@@ -70,8 +73,10 @@ fun checkUserLogin(context: Context): Boolean {
     if (!PreferenceHelper.getToken().isNullOrEmpty() )
         return true
     else
-    {
+
         Toast.makeText(context,"يجب تسجيل الدخول اولا", Toast.LENGTH_SHORT).show()
         return  false
-    }
+
+
+
 }

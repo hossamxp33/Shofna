@@ -1,5 +1,7 @@
 package com.example.shofna.presentation.registerActivity
 
+import android.app.ActivityOptions
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
@@ -11,6 +13,8 @@ import androidx.core.graphics.BlendModeColorFilterCompat
 import androidx.core.graphics.BlendModeCompat
 import com.example.shofna.R
 import com.example.shofna.helper.PreferenceHelper
+import com.example.shofna.helper.checkUserLogin
+import com.example.shofna.presentation.MainActivity
 import com.example.shofna.presentation.registerActivity.tabs_adapters.TabsPagerAdapter
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -22,6 +26,15 @@ class RegisterActivity: AppCompatActivity() {
       PreferenceHelper(this)
         setContentView(R.layout.register_activity)
 
+        if (checkUserLogin(this)) {
+
+            val homeIntent = Intent(this, MainActivity::class.java)
+            overridePendingTransition(R.anim.slide_right, R.anim.slide_left);
+
+            startActivity(homeIntent)
+
+
+        }
 
         tab_layout.setBackgroundColor(ContextCompat.getColor(this, R.color.light_gray))
         // Number Of Tabs

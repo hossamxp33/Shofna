@@ -1,5 +1,6 @@
 package com.example.shofna.presentation
 
+import android.app.ActivityOptions
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -33,10 +34,15 @@ class ClickHandler {
                 Toast.makeText(context, "تم تسجيل خروجك", Toast.LENGTH_SHORT).show()
 
                 val homeIntent = Intent(context, RegisterActivity::class.java)
-                ( context as MainActivity).startActivity(homeIntent)
+                (context as MainActivity) .overridePendingTransition(R.anim.slide_right, R.anim.slide_left);
+
+                ( context as MainActivity).startActivity(homeIntent, ActivityOptions.makeSceneTransitionAnimation(context).toBundle())
+
             }else {
                 val homeIntent = Intent(context, RegisterActivity::class.java)
-                ( context as MainActivity).startActivity(homeIntent)
+                (context as MainActivity) .overridePendingTransition(R.anim.slide_right, R.anim.slide_left);
+
+                ( context as MainActivity).startActivity(homeIntent, ActivityOptions.makeSceneTransitionAnimation(context).toBundle())
 
             }
 

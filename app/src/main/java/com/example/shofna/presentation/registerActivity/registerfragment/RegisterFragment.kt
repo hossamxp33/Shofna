@@ -29,6 +29,7 @@ class RegisterFragment: Fragment() { private val viewModel: MainViewModel by laz
 
         val view = inflater.inflate(R.layout.register_fragment, container, false)
 
+
         view.register.setOnClickListener {
             val user = User()
             user.username = view.username?.text.toString()
