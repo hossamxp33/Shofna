@@ -9,8 +9,11 @@
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/teal_200</item>
+        <item name="fontFamily">@font/cocon_next_arabic</item>
+
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor"
+            tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
 
@@ -53,6 +56,16 @@
 
 
     </style>
+
+    <style name="LoginTextStyle">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/cocon_next_arabic</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:textStyle">bold</item>
+
+
+    </style>
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
@@ -61,7 +74,11 @@
         <item name="android:windowContentTransitions">true</item>
         ...
     </style>
+    <style name="TabLayoutStyle" parent="Base.Widget.Design.TabLayout">
+        <item name="android:textSize">14dp</item>
 
+
+    </style>
 
     <style name="GlideSliderCardStyle" parent="Base.CardView">
         <item name="android:layout_height">match_parent</item>
@@ -72,6 +89,8 @@
 
     <style name="BottomNavStyle">
         <item name="android:fontFamily">@font/cocon_next_arabic</item>
+        <item name="android:layout_marginRight">16dp</item>
+        <item name="android:layout_marginLeft">16dp</item>
 
     </style>
     <style name="TitleStyle">

@@ -15,7 +15,7 @@ import com.example.shofna.R
 import com.example.shofna.presentation.MainActivity
 import java.util.*
 
-class ResourceUtil {
+public class ResourceUtil {
     private var myLocale: Locale? = null
 
      fun getCurrentLanguage(context: Context): String? {

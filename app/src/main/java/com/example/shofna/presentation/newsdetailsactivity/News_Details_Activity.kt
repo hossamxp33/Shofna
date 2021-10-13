@@ -42,26 +42,27 @@ var index = 0
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             setContentView(R.layout.news_details_fragment)
-viewModel=ViewModelProviders.of(this).get(MainViewModel::class.java)
 
-
+            viewModel=ViewModelProviders.of(this).get(MainViewModel::class.java)
             binding = DataBindingUtil.setContentView(this, R.layout.news_details_fragment)
 
        binding!!.myviewModel = viewModel
 
         itemX = intent.getParcelableExtra("data")
+
         item_id = itemX?.id
 
+        viewModel.GetNewsDetails(item_id!!)
 
-            viewModel.GetNewsDetails(item_id!!)
 
-            ResourceUtil().loudImage(this, news_details_image, itemX!!.photo)
 
 
             try {
 
 
     viewModel.DetailsDataLD?.observe(this, Observer {
+
+        ResourceUtil().loudImage(this, news_details_image, it.item.photo)
 
 
         news_title.text = it.item.name

@@ -6,16 +6,9 @@
         android:id="@+id/home"
         android:icon="@drawable/house"
         android:title="@string/main"
-
         app:cnb_iconTintMode="src_in"
         app:cnb_iconColor="@color/activity"/>
 
-
-    <item
-        android:id="@+id/favorites"
-        android:icon="@drawable/book_mark"
-        android:title="@string/favourite"
-        app:cnb_iconColor="@color/activity" />
     <item
         android:id="@+id/settings"
         android:icon="@drawable/settings"

@@ -17,5 +17,8 @@ class MainActivity : AppCompatActivity() {
             .setCustomAnimations(R.anim.ttb, 0, 0, 0)
             .replace(R.id.main_frame, HomeFragment()).addToBackStack(null).commit()
 
+
+
+        Menus().bottomMenu(this)
     }
 }

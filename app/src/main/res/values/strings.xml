@@ -6,6 +6,12 @@
     <string name="cart">Cart</string>
     <string name="ar">ar</string>
     <string name="related">Related News</string>
+    <string name="contact">Contact Us</string>
 
+    <string name="login">Login</string>
+    <string name="logout">Logout</string>
+    <string name="register">register</string>
+    <string name="username">User Name</string>
+    <string name="password">Password</string>
 
 </resources>

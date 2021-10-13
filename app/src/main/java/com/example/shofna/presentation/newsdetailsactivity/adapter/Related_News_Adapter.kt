@@ -21,6 +21,7 @@ import com.example.shofna.presentation.MainActivity
 import com.example.shofna.presentation.homefragment.adapters.NewsAdapter
 import com.example.shofna.presentation.homefragment.viewmodel.MainViewModel
 import com.example.shofna.presentation.newsdetailsactivity.News_Details_Activity
+import kotlinx.android.synthetic.main.news_details_fragment.*
 
 class Related_News_Adapter(var viewModel: MainViewModel, var activity: AppCompatActivity, var menu: List<Related>): RecyclerView.Adapter<Related_News_Adapter.CustomViewHolder>() {
 
@@ -39,10 +40,11 @@ class Related_News_Adapter(var viewModel: MainViewModel, var activity: AppCompat
     }
 
     override fun onBindViewHolder(p0: CustomViewHolder, p1: Int) {
+
         p0.bind(p1,activity,menu.get(p1),viewModel)
 
         p0.binding.cardView.setOnClickListener {
-
+            activity.progress.visibility = View.VISIBLE
             viewModel.GetNewsDetails(menu[p1].id)
 
             //notifyDataSetChanged();

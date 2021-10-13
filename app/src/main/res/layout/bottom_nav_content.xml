@@ -18,6 +18,7 @@ app:layout_behavior="@string/bottom_sheet_behavior">
         android:layout_marginStart="4dp"
         android:layout_marginEnd="4dp"
         android:layout_marginBottom="4dp"
+        style="BottomNavStyle"
         android:background="@drawable/white_round_backg"
         android:elevation="0dp"
         android:theme="@style/BottomNavStyle"
@@ -25,7 +26,6 @@ app:layout_behavior="@string/bottom_sheet_behavior">
         app:cnb_menuResource="@menu/bottom_menu"
         app:cnb_radius="12dp"
         app:cnb_unselectedColor="@color/gray"
-
         app:layout_anchorGravity="bottom"
         app:layout_behavior="@string/bottom_sheet_behavior"
         app:layout_constraintBottom_toBottomOf="parent"

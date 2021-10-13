@@ -79,21 +79,15 @@ open class HomeFragment : Fragment() {
 
             it.sliders.let { it1 -> Permissions().init(it1.size,context,this) }
 
-            indicator.setViewPager(mypager)
+           indicator.setViewPager(mypager)
 
            view.progress.visibility = View.GONE
 
-            stoploading()
+           stoploading()
 
             MainData = it
 
-
- //   view.pagerlayout.frame_no_news.visibility = View.VISIBLE
-
-
-    datArray.addAll(it.items.get(index).items)
-
-
+            datArray.addAll(it.items.get(index).items)
 
             adapter = NewsAdapter(context as FragmentActivity, datArray)
             view.pagerlayout.news_recycle.layoutManager = LinearLayoutManager(activity)
@@ -120,7 +114,9 @@ open class HomeFragment : Fragment() {
                 datArray.addAll(MainData!!.items.get(it).items)
 
                 adapter!!.notifyDataSetChanged()
-            }catch (e:Exception){
+
+            }
+            catch (e:Exception){
 
             }
 

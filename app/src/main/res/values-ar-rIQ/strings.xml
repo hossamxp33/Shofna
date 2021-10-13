@@ -7,5 +7,11 @@
     <string name="cart">العربة</string>
     <string name="ar">ar</string>
     <string name="related">أخبار ذات صلة</string>
+    <string name="contact">تواصل معنا</string>
+    <string name="login">تسجيل الدخول</string>
+    <string name="logout">تسجيل خروج</string>
+    <string name="register">حساب جديد</string>
+    <string name="username">اسم المستخدم</string>
+    <string name="password">كلمة المرور</string>
 
 </resources>
