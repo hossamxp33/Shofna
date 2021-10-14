@@ -10,6 +10,7 @@ data class Item(
     var items: List<ItemX>,
     var modified: String,
     var name: String,
+    var link :String,
     var photo: String,
     var type: String
 )  : Parcelable {

@@ -50,6 +50,8 @@ class Menus {
                     }
 
                     R.id.settings -> {
+
+
                         switchFragment(MenuFragment(), context)
 
 

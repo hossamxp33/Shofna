@@ -2,6 +2,7 @@ package com.example.shofna.presentation.homefragment.adapters
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -16,6 +17,11 @@ import com.example.shofna.presentation.newsdetailsactivity.News_Details_Activity
 
 
 import androidx.core.app.ActivityOptionsCompat
+import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.startActivity
+
+
+
 
 
 class NewsAdapter(var activity: FragmentActivity, var menu: List<ItemX>): RecyclerView.Adapter<NewsAdapter.CustomViewHolder>() {
@@ -38,19 +44,25 @@ class NewsAdapter(var activity: FragmentActivity, var menu: List<ItemX>): Recycl
             p0.bind(p1,activity,menu.get(p1))
 
              p0.binding.cardView.setOnClickListener {
+                  val url = menusData.get(p1).link
+                 if(!url.isNullOrEmpty()){
+                     val browserIntent =
+                         Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                    activity.startActivity(browserIntent)
+                 }else {
 
+                     val intent = Intent(this.activity, News_Details_Activity::class.java)
 
-                 val intent = Intent(this.activity, News_Details_Activity::class.java)
+                     intent.putExtra("data", menu.get(p1))
+                     intent.putExtra("id", menu.get(p1).id)
 
-                 intent.putExtra("data",menu.get(p1))
-                 intent.putExtra("id",menu.get(p1).id)
+                     val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                         activity,
+                         p0.binding.appCompatImageView, "news_image"
+                     )
 
-                 val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
-                     activity,
-                     p0.binding.appCompatImageView, "news_image")
-
-                 (activity).startActivityForResult(intent, 1000, options.toBundle());
-
+                     (activity).startActivityForResult(intent, 1000, options.toBundle());
+                 }
              }
 
         }

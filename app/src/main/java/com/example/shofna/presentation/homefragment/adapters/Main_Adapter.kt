@@ -1,7 +1,9 @@
 package com.example.shofna.presentation.homefragment
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -38,7 +40,12 @@ class Main_Adapter(
 
         p0.binding.name.setOnClickListener{
 //        homeFragment!!.index = p1
-
+            val url = data.get(p1).link
+            if(!url.isNullOrEmpty()) {
+                val browserIntent =
+                    Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                context!!.startActivity(browserIntent)
+            }else{
             viewModel.SwtichingCategories(p1)
 
 
@@ -48,7 +55,7 @@ class Main_Adapter(
 
 
             notifyDataSetChanged();
-
+            }
         }
 
 
