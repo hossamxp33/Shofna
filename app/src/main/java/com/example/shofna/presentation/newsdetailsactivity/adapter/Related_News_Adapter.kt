@@ -45,6 +45,7 @@ class Related_News_Adapter(var viewModel: MainViewModel, var activity: AppCompat
 
         p0.binding.cardView.setOnClickListener {
             activity.progress.visibility = View.VISIBLE
+
             viewModel.GetNewsDetails(menu[p1].id)
 
             //notifyDataSetChanged();

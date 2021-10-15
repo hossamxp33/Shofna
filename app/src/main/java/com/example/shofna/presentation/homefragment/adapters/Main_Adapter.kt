@@ -17,6 +17,7 @@ import com.example.shofna.model.Item
 import com.example.shofna.presentaion.homefragment.viewmodel.BindableString
 import com.example.shofna.presentation.MainActivity
 import com.example.shofna.presentation.homefragment.viewmodel.MainViewModel
+import com.example.shofna.presentation.webview.WebViewActivity
 
 
 class Main_Adapter(
@@ -39,12 +40,16 @@ class Main_Adapter(
         p0.bind(context, data.get(p1),viewModel)
 
         p0.binding.name.setOnClickListener{
-//        homeFragment!!.index = p1
+
             val url = data.get(p1).link
             if(!url.isNullOrEmpty()) {
-                val browserIntent =
-                    Intent(Intent.ACTION_VIEW, Uri.parse(url))
-                context!!.startActivity(browserIntent)
+
+
+                val intent = Intent(context, WebViewActivity::class.java)
+                intent.putExtra("link", url);
+
+                (context as MainActivity).startActivity(intent)
+
             }else{
             viewModel.SwtichingCategories(p1)
 

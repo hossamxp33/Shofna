@@ -19,9 +19,7 @@ import com.example.shofna.presentation.newsdetailsactivity.News_Details_Activity
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.startActivity
-
-
-
+import com.example.shofna.presentation.webview.WebViewActivity
 
 
 class NewsAdapter(var activity: FragmentActivity, var menu: List<ItemX>): RecyclerView.Adapter<NewsAdapter.CustomViewHolder>() {
@@ -46,9 +44,13 @@ class NewsAdapter(var activity: FragmentActivity, var menu: List<ItemX>): Recycl
              p0.binding.cardView.setOnClickListener {
                   val url = menusData.get(p1).link
                  if(!url.isNullOrEmpty()){
-                     val browserIntent =
-                         Intent(Intent.ACTION_VIEW, Uri.parse(url))
-                    activity.startActivity(browserIntent)
+
+
+                     val intent = Intent(this.activity, WebViewActivity::class.java)
+                     intent.putExtra("link", url);
+
+                     (this.activity as MainActivity).startActivity(intent)
+
                  }else {
 
                      val intent = Intent(this.activity, News_Details_Activity::class.java)

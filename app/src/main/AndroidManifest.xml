@@ -28,6 +28,11 @@
             android:theme="@style/AppTheme">
 
         </activity>
+        <activity
+            android:name=".presentation.webview.WebViewActivity"
+            android:theme="@style/AppTheme">
+
+        </activity>
 
 
         <activity
