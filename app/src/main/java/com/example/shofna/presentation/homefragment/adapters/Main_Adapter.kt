@@ -3,7 +3,6 @@ package com.example.shofna.presentation.homefragment
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -12,9 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.shofna.presentation.ClickHandler
 import com.example.shofna.R
 import com.example.shofna.databinding.MainAdapterBinding
-import com.example.shofna.helper.PreferenceHelper
 import com.example.shofna.model.Item
-import com.example.shofna.presentaion.homefragment.HomeFragment
 
 import com.example.shofna.presentaion.homefragment.viewmodel.BindableString
 import com.example.shofna.presentation.MainActivity
@@ -54,6 +51,7 @@ class Main_Adapter(
             row_index = 0
 
         }
+
         p0.binding.name.setOnClickListener{
 
             val url = data.get(p1).link

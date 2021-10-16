@@ -66,10 +66,15 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/name"
             style="@style/topicTitleTextStyle"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text="@{data.name}"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:layout_gravity="start"
+            android:lines="1"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/card_view"
             app:layout_constraintTop_toTopOf="parent" />
 

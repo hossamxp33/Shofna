@@ -1,23 +1,16 @@
 package com.example.shofna.presentation
 
 import android.content.Context
-import android.content.Intent
-import android.os.Handler
-import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.shofna.R
 import com.example.shofna.presentaion.homefragment.DepartmentsFragment
-import com.example.shofna.presentaion.homefragment.HomeFragment
+import com.example.shofna.presentation.homefragment.HomeFragment
 import com.example.shofna.presentation.homefragment.viewmodel.MainViewModel
 import com.example.shofna.presentation.menufragment.MenuFragment
 import com.ismaeldivita.chipnavigation.ChipNavigationBar
 
 import com.yalantis.contextmenu.lib.ContextMenuDialogFragment
-import com.yalantis.contextmenu.lib.MenuObject
-import com.yalantis.contextmenu.lib.MenuParams
-import kotlinx.android.synthetic.main.activity_main_content.*
 import kotlinx.android.synthetic.main.bottom_nav_content.*
-import kotlinx.android.synthetic.main.main_frame_content.*
 
 
 class Menus {

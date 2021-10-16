@@ -2,8 +2,6 @@ package com.example.shofna.presentation.departments
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -12,10 +10,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.shofna.presentation.ClickHandler
 import com.example.shofna.R
 import com.example.shofna.databinding.DepartmentAdapterBinding
-import com.example.shofna.databinding.MainAdapterBinding
 import com.example.shofna.helper.PreferenceHelper
 import com.example.shofna.model.Item
-import com.example.shofna.presentaion.homefragment.HomeFragment
+import com.example.shofna.presentation.homefragment.HomeFragment
 
 import com.example.shofna.presentaion.homefragment.viewmodel.BindableString
 import com.example.shofna.presentation.MainActivity

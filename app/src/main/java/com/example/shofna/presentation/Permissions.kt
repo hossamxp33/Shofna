@@ -8,10 +8,8 @@ import android.net.NetworkCapabilities
 import android.os.Build
 import android.os.Handler
 import androidx.core.app.ActivityCompat
-import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
-import com.example.shofna.presentaion.homefragment.HomeFragment
-import kotlinx.android.synthetic.main.main_fragment.*
+import com.example.shofna.presentation.homefragment.HomeFragment
 import kotlinx.android.synthetic.main.pager_layout.*
 import java.util.*
 

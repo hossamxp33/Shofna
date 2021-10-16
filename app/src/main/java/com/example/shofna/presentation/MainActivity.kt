@@ -5,7 +5,7 @@ import android.os.Bundle
 import com.example.shofna.R
 import com.example.shofna.helper.PreferenceHelper
 import com.example.shofna.helper.ResourceUtil
-import com.example.shofna.presentaion.homefragment.HomeFragment
+import com.example.shofna.presentation.homefragment.HomeFragment
 import com.google.firebase.FirebaseApp
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.google.firebase.messaging.FirebaseMessaging
