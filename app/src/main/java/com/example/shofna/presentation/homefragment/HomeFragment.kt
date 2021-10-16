@@ -24,6 +24,7 @@ import com.example.shofna.presentation.homefragment.Main_Adapter
 import com.example.shofna.presentation.homefragment.adapters.NewsAdapter
 import com.example.shofna.presentation.homefragment.adapters.SliderAdapter
 import com.example.shofna.presentation.homefragment.viewmodel.MainViewModel
+import kotlinx.android.synthetic.main.bottom_nav_content.*
 import kotlinx.android.synthetic.main.main_fragment.*
 import kotlinx.android.synthetic.main.pager_layout.*
 import kotlinx.android.synthetic.main.pager_layout.view.*
@@ -58,21 +59,22 @@ open class HomeFragment : Fragment() {
                 R.layout.main_fragment, container, false)
 
       //  stoploading()
-
-
+         if (TAG != null){
+             (context as MainActivity).bottom_nav_bar.setItemSelected(R.id.home)
+         }
         val context = context as MainActivity
          view.viewmodel = viewModel
-
         viewModel.GetMainData(context)
 
         if (arguments != null) {
 
-         position = arguments?.getInt("position")!!
+            position = arguments?.getInt("position")!!
 
 
-            Handler().postDelayed({view.pagerlayout.departments.scrollToPosition(position) },
+            Handler().postDelayed({   view.pagerlayout.departments.scrollToPosition(position) },
                 1000)
-            }
+        }
+
           var mypager = view.pagerlayout.pager
 
 

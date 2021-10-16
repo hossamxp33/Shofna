@@ -50,9 +50,8 @@ class Main_Adapter(
           row_index = observe_index
 
       }else{
-            viewModel.SwtichingCategories(p1)
-            row_index = p1
-            notifyDataSetChanged();
+            viewModel.SwtichingCategories(0)
+            row_index = 0
 
         }
         p0.binding.name.setOnClickListener{
