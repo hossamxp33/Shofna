@@ -12,14 +12,17 @@
         <entry key="..\:/Shofna/app/src/main/res/drawable/circle_layout.xml" value="0.333984375" />
         <entry key="..\:/Shofna/app/src/main/res/drawable/corner_raduis.xml" value="0.18518518518518517" />
         <entry key="..\:/Shofna/app/src/main/res/drawable/drawable_state.xml" value="0.178125" />
+        <entry key="..\:/Shofna/app/src/main/res/drawable/ic_baseline_keyboard_arrow_up_24.xml" value="0.22037037037037038" />
         <entry key="..\:/Shofna/app/src/main/res/drawable/shadowbackground.xml" value="0.178125" />
         <entry key="..\:/Shofna/app/src/main/res/drawable/white_round_backg.xml" value="0.12962962962962962" />
         <entry key="..\:/Shofna/app/src/main/res/layout/activity_main.xml" value="0.2074074074074074" />
         <entry key="..\:/Shofna/app/src/main/res/layout/activity_main_content.xml" value="0.18" />
         <entry key="..\:/Shofna/app/src/main/res/layout/bottom_nav_content.xml" value="0.16197916666666667" />
+        <entry key="..\:/Shofna/app/src/main/res/layout/department_adapter.xml" value="0.33" />
+        <entry key="..\:/Shofna/app/src/main/res/layout/depratment_fragment.xml" value="0.25" />
         <entry key="..\:/Shofna/app/src/main/res/layout/home_fragment.xml" value="0.2074074074074074" />
         <entry key="..\:/Shofna/app/src/main/res/layout/login_fragment.xml" value="0.2" />
-        <entry key="..\:/Shofna/app/src/main/res/layout/main_adapter.xml" value="0.2935185185185185" />
+        <entry key="..\:/Shofna/app/src/main/res/layout/main_adapter.xml" value="0.22" />
         <entry key="..\:/Shofna/app/src/main/res/layout/main_fragment.xml" value="0.16197916666666667" />
         <entry key="..\:/Shofna/app/src/main/res/layout/main_frame_content.xml" value="0.2074074074074074" />
         <entry key="..\:/Shofna/app/src/main/res/layout/main_items_adapter.xml" value="0.16197916666666667" />

@@ -9,6 +9,8 @@
     <string name="related">أخبار ذات صلة</string>
     <string name="contact">تواصل معنا</string>
     <string name="login">تسجيل الدخول</string>
+    <string name="department">الاقسام </string>
+
     <string name="logout">تسجيل خروج</string>
     <string name="register">حساب جديد</string>
     <string name="username">اسم المستخدم</string>

@@ -10,7 +10,9 @@ import androidx.fragment.app.Fragment
 import com.example.shofna.R
 import com.example.shofna.helper.PreferenceHelper
 import com.example.shofna.helper.checkUserLogin
+import com.example.shofna.presentaion.homefragment.HomeFragment
 import com.example.shofna.presentation.registerActivity.RegisterActivity
+import java.text.FieldPosition
 
 
 class ClickHandler {
@@ -48,7 +50,14 @@ class ClickHandler {
 
     }
 
+fun switchToNews(context: Context,position: Int){
+    val bundle = Bundle()
+    val frag = HomeFragment()
+    frag.arguments = bundle
+    bundle.putInt("position", position)
+    switchFragment(frag,context)
 
+}
 
     fun switchFragment(fragment: Fragment, context: Context) {
 

@@ -6,6 +6,7 @@ import android.os.Handler
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.shofna.R
+import com.example.shofna.presentaion.homefragment.DepartmentsFragment
 import com.example.shofna.presentaion.homefragment.HomeFragment
 import com.example.shofna.presentation.menufragment.MenuFragment
 import com.ismaeldivita.chipnavigation.ChipNavigationBar
@@ -21,6 +22,7 @@ import kotlinx.android.synthetic.main.main_frame_content.*
 class Menus {
     var chipNavigationBar: ChipNavigationBar? = null
     lateinit var contextMenuDialogFragment: ContextMenuDialogFragment
+    private var activeFragment: Fragment = HomeFragment()
 
     var context: Context? = null
 
@@ -33,8 +35,8 @@ class Menus {
         /// bottom bar
 
         chipNavigationBar!!.setItemSelected(R.id.bottom_nav_bar, true)
-        context.supportFragmentManager.beginTransaction()
-            .replace(R.id.main_frame, HomeFragment()).commit()
+
+        switchFragment(activeFragment, context)
 
         /// default fragment
         context.bottom_nav_bar.setItemSelected(R.id.home)
@@ -46,30 +48,35 @@ class Menus {
                     R.id.home -> {
 
                         switchFragment(HomeFragment(), context)
-
+                         activeFragment = HomeFragment()
+                        true
                     }
+                    R.id.departments -> {
 
+                        switchFragment(DepartmentsFragment(), context)
+                        activeFragment = DepartmentsFragment()
+
+                        true
+                    }
                     R.id.settings -> {
 
 
                         switchFragment(MenuFragment(), context)
+                        activeFragment = MenuFragment()
 
+                        true
 
-
-                    }
+                    } else -> false
                 }
-
             }
         })
     }
 
     fun switchFragment(fragment: Fragment, context: Context) {
 
-        (context as MainActivity).supportFragmentManager.beginTransaction()
+        (context as MainActivity).supportFragmentManager.beginTransaction().setReorderingAllowed(true)
             .setCustomAnimations(R.anim.slide_right, 0, 0, 0)
             .replace(R.id.main_frame, fragment).addToBackStack(null).commit()
-
-
 
     }
 

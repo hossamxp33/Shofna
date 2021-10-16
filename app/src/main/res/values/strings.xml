@@ -9,6 +9,8 @@
     <string name="contact">Contact Us</string>
 
     <string name="login">Login</string>
+    <string name="department">department </string>
+
     <string name="logout">Logout</string>
     <string name="register">register</string>
     <string name="username">User Name</string>

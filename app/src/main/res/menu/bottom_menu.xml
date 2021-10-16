@@ -8,7 +8,12 @@
         android:title="@string/main"
         app:cnb_iconTintMode="src_in"
         app:cnb_iconColor="@color/activity"/>
-
+    <item
+        android:id="@+id/departments"
+        android:icon="@drawable/newsreport"
+        android:title="@string/department"
+        app:cnb_iconTintMode="src_in"
+        app:cnb_iconColor="@color/activity"/>
     <item
         android:id="@+id/settings"
         android:icon="@drawable/settings"

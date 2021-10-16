@@ -1,16 +1,17 @@
-package com.example.shofna.presentation.homefragment
+package com.example.shofna.presentation.departments
 
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shofna.presentation.ClickHandler
 import com.example.shofna.R
+import com.example.shofna.databinding.DepartmentAdapterBinding
 import com.example.shofna.databinding.MainAdapterBinding
 import com.example.shofna.helper.PreferenceHelper
 import com.example.shofna.model.Item
@@ -22,13 +23,12 @@ import com.example.shofna.presentation.homefragment.viewmodel.MainViewModel
 import com.example.shofna.presentation.webview.WebViewActivity
 
 
-class Main_Adapter(
+class Departments_Adapter(
     var viewModel: MainViewModel, var context: Context?, var data: List<Item>
 ) : RecyclerView.Adapter<CustomViewHolder>() {
 
 
-    var row_index : Int ? = null
-    var observe_index : Int ? = 0
+
     override fun getItemCount(): Int {
         return data.size
     }
@@ -41,20 +41,6 @@ class Main_Adapter(
     override fun onBindViewHolder(p0: CustomViewHolder, p1: Int) {
         p0.bind(context, data.get(p1),viewModel)
 
-        viewModel.ItemIndex.observe(context as MainActivity, Observer {
-            observe_index = it
-        })
-
-        if (observe_index != null){
-          viewModel.SwtichingCategories(observe_index!!)
-          row_index = observe_index
-
-      }else{
-            viewModel.SwtichingCategories(p1)
-            row_index = p1
-            notifyDataSetChanged();
-
-        }
         p0.binding.name.setOnClickListener{
 
             val url = data.get(p1).link
@@ -68,13 +54,19 @@ class Main_Adapter(
 
             }else{
 
-
-
+                val bundle = Bundle()
+                val frag = HomeFragment()
+                frag.arguments = bundle
+                bundle.putInt("position", p1)
                 viewModel.SwtichingCategories(p1)
 
-                row_index = p1
+                ClickHandler().switchFragment(frag,context!!)
 
-                notifyDataSetChanged();
+
+            // notifyItemChanged(p1);
+
+
+
 
 
             }
@@ -82,30 +74,14 @@ class Main_Adapter(
 
 
 
-
-
-
-
-
-
-        if(row_index==p1){
-            p0.binding.name.setTextColor(Color.parseColor("#131313"));
-
-        }
-        else
-        {
-            p0.binding.name.setTextColor(Color.parseColor("#cfcfcf"));
-        }
-
     }
 
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): CustomViewHolder {
-        val binding: MainAdapterBinding = DataBindingUtil.inflate(
+        val binding: DepartmentAdapterBinding = DataBindingUtil.inflate(
             LayoutInflater.from(p0.context),
-            R.layout.main_adapter, p0, false
+            R.layout.department_adapter, p0, false
         )
-
 
         return CustomViewHolder(binding)
 
@@ -116,7 +92,7 @@ class Main_Adapter(
 
 
 class CustomViewHolder(
-     val binding: MainAdapterBinding
+     val binding: DepartmentAdapterBinding
 ) : RecyclerView.ViewHolder(binding.root) {
 
 

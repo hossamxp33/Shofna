@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout">
+
+    <data>
+
+        <variable
+            name="Context"
+            type="com.example.shofna.presentation.MainActivity" />
+
+        <variable
+            name="listener"
+            type="com.example.shofna.presentation.ClickHandler" />
+
+        <variable
+            name="data"
+            type="com.example.shofna.model.Item" />
+
+        <variable
+            name="bindingadater"
+            type="com.example.shofna.presentaion.homefragment.viewmodel.BindableString" />
+
+        <variable
+            name="viewModel"
+            type="com.example.shofna.presentation.homefragment.viewmodel.MainViewModel" />
+
+
+        <import type="android.text.Html" />
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:padding="8dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/appCompatImageView"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/loading"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/name"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="@{data.name}"
+            android:layout_marginRight="16dp"
+            app:layout_constraintRight_toLeftOf="@+id/appCompatImageView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/hint_gray"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
