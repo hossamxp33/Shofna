@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import com.example.shofna.R
 import com.example.shofna.presentaion.homefragment.DepartmentsFragment
 import com.example.shofna.presentaion.homefragment.HomeFragment
+import com.example.shofna.presentation.homefragment.viewmodel.MainViewModel
 import com.example.shofna.presentation.menufragment.MenuFragment
 import com.ismaeldivita.chipnavigation.ChipNavigationBar
 
@@ -23,7 +24,7 @@ class Menus {
     var chipNavigationBar: ChipNavigationBar? = null
     lateinit var contextMenuDialogFragment: ContextMenuDialogFragment
     private var activeFragment: Fragment = HomeFragment()
-
+    lateinit var viewModel: MainViewModel
     var context: Context? = null
 
     //////// Horizontal Menu /////
@@ -45,26 +46,20 @@ class Menus {
             ChipNavigationBar.OnItemSelectedListener {
             override fun onItemSelected(i: Int) {
                 when (i) {
-                    R.id.home -> {
 
+                    R.id.home -> {
                         switchFragment(HomeFragment(), context)
-                         activeFragment = HomeFragment()
-                        true
+
                     }
                     R.id.departments -> {
 
                         switchFragment(DepartmentsFragment(), context)
-                        activeFragment = DepartmentsFragment()
 
-                        true
                     }
                     R.id.settings -> {
 
 
                         switchFragment(MenuFragment(), context)
-                        activeFragment = MenuFragment()
-
-                        true
 
                     } else -> false
                 }
