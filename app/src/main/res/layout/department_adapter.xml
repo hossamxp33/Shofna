@@ -36,12 +36,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:padding="8dp">
+       >
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/appCompatImageView"
-                android:layout_width="18dp"
-                android:layout_height="18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:src="@drawable/loading"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -51,11 +51,13 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/name"
             style="@style/TextStyle"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
+            android:layout_marginRight="32dp"
+
+            android:drawableLeft="@drawable/ic_left"
             android:text="@{data.name}"
-            android:layout_marginRight="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toLeftOf="@+id/appCompatImageView"
             app:layout_constraintTop_toTopOf="parent" />
 

@@ -70,8 +70,8 @@ open class HomeFragment : Fragment() {
          position = arguments?.getInt("position")!!
 
 
-            Handler().postDelayed({   view.pagerlayout.departments.scrollToPosition(position) },
-                700)
+            Handler().postDelayed({view.pagerlayout.departments.scrollToPosition(position) },
+                1000)
             }
           var mypager = view.pagerlayout.pager
 
