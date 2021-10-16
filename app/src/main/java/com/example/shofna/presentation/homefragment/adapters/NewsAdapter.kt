@@ -41,7 +41,7 @@ class NewsAdapter(var activity: FragmentActivity, var menu: List<ItemX>): Recycl
         override fun onBindViewHolder(p0: CustomViewHolder, p1: Int) {
             p0.bind(p1,activity,menu.get(p1))
 
-             p0.binding.cardView.setOnClickListener {
+             p0.binding.constraintLayout.setOnClickListener {
                   val url = menusData.get(p1).link
                  if(!url.isNullOrEmpty()){
 
