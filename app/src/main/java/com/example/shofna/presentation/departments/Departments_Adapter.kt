@@ -53,9 +53,10 @@ class Departments_Adapter(
 
                 val bundle = Bundle()
                 val frag = HomeFragment()
+
                 frag.arguments = bundle
+
                 bundle.putInt("position", p1)
-                viewModel.SwtichingCategories(p1)
 
                 ClickHandler().switchFragment(frag,context!!)
 

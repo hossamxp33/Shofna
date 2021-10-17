@@ -23,7 +23,7 @@
             android:layout_height="190dp"
             android:alpha="0.85"
             android:scaleType="fitXY"
-            android:src="@drawable/login_bg"
+            android:src="@drawable/images"
             app:layout_constraintTop_toTopOf="parent" />
 
 

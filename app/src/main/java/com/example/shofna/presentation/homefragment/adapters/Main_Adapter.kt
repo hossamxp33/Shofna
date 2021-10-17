@@ -38,47 +38,47 @@ class Main_Adapter(
     override fun onBindViewHolder(p0: CustomViewHolder, p1: Int) {
         p0.bind(context, data.get(p1),viewModel)
 
-        viewModel.ItemIndex.observe(context as MainActivity, Observer {
-            observe_index = it
-        })
-
-        if (observe_index != null){
-          viewModel.SwtichingCategories(observe_index!!)
-          row_index = observe_index
-
-      }else{
-            viewModel.SwtichingCategories(0)
-            row_index = 0
-
-        }
-
-        p0.binding.name.setOnClickListener{
-
-            val url = data.get(p1).link
-            if(!url.isNullOrEmpty()) {
-
-
-                val intent = Intent(context, WebViewActivity::class.java)
-                intent.putExtra("link", url);
-
-                (context as MainActivity).startActivity(intent)
-
-            }else{
-
-
-
-                viewModel.SwtichingCategories(p1)
-
-                row_index = p1
-
-                notifyDataSetChanged();
-
-
-            }
-        }
-
-
-
+//        viewModel.ItemIndex.observe(context as MainActivity, Observer {
+//            observe_index = it
+//        })
+//
+//        if (observe_index != null){
+//          viewModel.SwtichingCategories(observe_index!!)
+//          row_index = observe_index
+//
+//      }else{
+//            viewModel.SwtichingCategories(0)
+//            row_index = 0
+//
+//        }
+//
+//        p0.binding.name.setOnClickListener{
+//
+//            val url = data.get(p1).link
+//            if(!url.isNullOrEmpty()) {
+//
+//
+//                val intent = Intent(context, WebViewActivity::class.java)
+//                intent.putExtra("link", url);
+//
+//                (context as MainActivity).startActivity(intent)
+//
+//            }else{
+//
+//
+//
+//                viewModel.SwtichingCategories(p1)
+//
+//                row_index = p1
+//
+//                notifyDataSetChanged();
+//
+//
+//            }
+//        }
+//
+//
+//
 
 
 

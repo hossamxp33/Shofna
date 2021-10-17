@@ -40,7 +40,7 @@ open class HomeFragment : Fragment() {
     var datArray = ArrayList<ItemX>()
     var adapter: NewsAdapter? = null
     var MainData: MainView? = null
-    var position = 0
+
 
     companion object {
 
@@ -61,46 +61,40 @@ open class HomeFragment : Fragment() {
         val context = context as MainActivity
         view.viewmodel = viewModel
 
+
         ////
 
         viewModel.GetMainData(context)
+
+
+        if (arguments != null) {
+            index =  arguments?.getInt("position")!!
+        }
 
 
         val mypager = view.pagerlayout.pager
 
         viewModel.MainDataLD?.observe(viewLifecycleOwner, Observer {
 
-            datArray.clear()
 
-            MainAdapter = Main_Adapter(viewModel, context, it.items)
-            view.pagerlayout.departments.layoutManager =
-                LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
-            view.pagerlayout.departments.adapter = MainAdapter;
-
+//            MainAdapter = Main_Adapter(viewModel, context, it.items)
+//            view.pagerlayout.departments.layoutManager =
+//                LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
+//            view.pagerlayout.departments.adapter = MainAdapter;
+//
 
             ///////////// view pager slider
-
             var indicator = view.pagerlayout.indicator
-
             mypager.adapter = it?.let { it1 -> SliderAdapter(requireActivity(), it1.sliders) }
-
             it.sliders.let { it1 -> Permissions().init(it1.size, context, this) }
-
             indicator.setViewPager(mypager)
 
-            view.progress.visibility = View.GONE
 
-            stoploading()
-
-            MainData = it
-
-            datArray.addAll(it.items.get(index).items)
-
-            adapter = NewsAdapter(context as FragmentActivity, datArray)
+            adapter = NewsAdapter(context as FragmentActivity, it.items[index].items)
             view.pagerlayout.news_recycle.layoutManager = LinearLayoutManager(activity)
             view.pagerlayout.news_recycle?.adapter = adapter
-
-
+            view.progress.visibility = View.GONE
+            stoploading()
         })
 
 
@@ -108,16 +102,6 @@ open class HomeFragment : Fragment() {
         viewModel.loadingLivedat.observe(viewLifecycleOwner,
             Observer { loading -> shimmer_view_container1.setVisibility(if (loading!!) View.VISIBLE else View.GONE) })
 
-        SwitchingCategories()
-        if (arguments != null) {
-
-            position = arguments?.getInt("position")!!
-
-
-            Handler().postDelayed(
-                { view.pagerlayout.departments.scrollToPosition(position) }, 1000
-            )
-        }
 
         return view.root
     }
