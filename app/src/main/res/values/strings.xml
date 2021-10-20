@@ -10,7 +10,7 @@
 
     <string name="login">Login</string>
     <string name="department">department </string>
-
+<string name="notification">notification</string>
     <string name="logout">Logout</string>
     <string name="register">register</string>
     <string name="username">User Name</string>

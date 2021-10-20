@@ -35,12 +35,12 @@ class SliderAdapter(activity: FragmentActivity, sliders: List<Slider>) : PagerAd
         val view = layoutInflater.inflate(R.layout.viewpagerslide_home1, container, false)
         ResourceUtil().loudImage(context,view.im_slider,slidersData[position].photo)
         container.addView(view)
-        val radius =context. resources.getDimension(R.dimen.name)
-        val shapeAppearanceModel = view.im_slider.shapeAppearanceModel.toBuilder()
-            .setBottomLeftCornerSize(radius)
-            .setBottomRightCornerSize(radius)
-            .build()
-        view.im_slider.shapeAppearanceModel = shapeAppearanceModel
+//        val radius =context. resources.getDimension(R.dimen.name)
+//        val shapeAppearanceModel = view.im_slider.shapeAppearanceModel.toBuilder()
+//            .setBottomLeftCornerSize(radius)
+//            .setBottomRightCornerSize(radius)
+//            .build()
+//        view.im_slider.shapeAppearanceModel = shapeAppearanceModel
         return view
     }
 

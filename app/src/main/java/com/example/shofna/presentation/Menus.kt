@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.fragment.app.Fragment
 import com.example.shofna.R
 import com.example.shofna.presentaion.homefragment.DepartmentsFragment
+import com.example.shofna.presentaion.homefragment.NotificationsFragment
 import com.example.shofna.presentation.homefragment.HomeFragment
 import com.example.shofna.presentation.homefragment.viewmodel.MainViewModel
 import com.example.shofna.presentation.menufragment.MenuFragment
@@ -47,6 +48,11 @@ class Menus {
                     R.id.departments -> {
 
                         switchFragment(DepartmentsFragment(), context)
+
+                    }
+                    R.id.notification -> {
+
+                        switchFragment(NotificationsFragment(), context)
 
                     }
                     R.id.settings -> {

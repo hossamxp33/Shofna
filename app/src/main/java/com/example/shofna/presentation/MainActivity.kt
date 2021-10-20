@@ -9,6 +9,14 @@ import com.example.shofna.presentation.homefragment.HomeFragment
 import com.google.firebase.FirebaseApp
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.google.firebase.messaging.FirebaseMessaging
+import android.graphics.Color
+import android.view.View
+import androidx.appcompat.widget.Toolbar
+
+import com.google.android.material.appbar.CollapsingToolbarLayout
+
+
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,5 +36,9 @@ class MainActivity : AppCompatActivity() {
 
 
         Menus().bottomMenu(this)
+
+
+
+
     }
 }

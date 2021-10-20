@@ -18,7 +18,7 @@
     </style>
 
     <style name="AppTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
+        <item name="windowActionBar">true</item>
         <item name="windowNoTitle">true</item>
         <item name="colorPrimaryDark">@color/activity</item>
         <item name="colorSecondary">@color/purple_200</item>
@@ -94,8 +94,8 @@
 
     <style name="BottomNavStyle">
         <item name="android:fontFamily">@font/cocon_next_arabic</item>
-        <item name="android:layout_marginRight">16dp</item>
-        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginRight">8dp</item>
+        <item name="android:layout_marginLeft">8dp</item>
 
     </style>
     <style name="TitleStyle">
