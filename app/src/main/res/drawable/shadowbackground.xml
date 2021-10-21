@@ -5,7 +5,15 @@
         <shape>
             <corners android:radius="12dp" />
             <padding android:bottom="1dp" android:left="1dp"
-                    android:right="1dp"  android:top="0dp" />
+                    android:right="1dp"  android:top="1dp" />
+            <solid android:color="@color/hint_gray" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <corners android:radius="12dp" />
+            <padding android:bottom="1dp" android:left="1dp"
+                    android:right="1dp"  android:top="1dp" />
             <solid android:color="@color/light_gray" />
         </shape>
     </item>
@@ -13,15 +21,7 @@
         <shape>
             <corners android:radius="12dp" />
             <padding android:bottom="1dp" android:left="1dp"
-                    android:right="1dp"  android:top="0dp" />
-            <solid android:color="@color/light_gray" />
-        </shape>
-    </item>
-    <item>
-        <shape>
-            <corners android:radius="12dp" />
-            <padding android:bottom="1dp" android:left="1dp"
-                    android:right="1dp"  android:top="0dp" />
+                    android:right="1dp"  android:top="1dp" />
             <solid android:color="@color/light_gray" />
         </shape>
     </item>

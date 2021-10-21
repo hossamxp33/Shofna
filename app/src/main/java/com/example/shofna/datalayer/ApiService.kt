@@ -4,6 +4,7 @@ package com.example.shofna.datalayer
 import com.example.shofna.model.Details
 import com.example.shofna.model.LoginModel
 import com.example.shofna.model.MainView
+import com.example.shofna.model.Notification
 import io.reactivex.Observable
 import retrofit2.http.*
 
@@ -37,7 +38,9 @@ interface APIServices {
     ): Observable<LoginModel>
 
 
-
+    @GET("notifications/index.json")/*{company_id}*/
+    fun GetNotifications():
+            Observable<Notification>
 
 
 }

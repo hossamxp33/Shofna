@@ -5,10 +5,7 @@ import androidx.databinding.ObservableField
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.shofna.DataRepo.DataRepo
-import com.example.shofna.model.Details
-import com.example.shofna.model.LoginData
-import com.example.shofna.model.MainView
-import com.example.shofna.model.User
+import com.example.shofna.model.*
 
 import io.reactivex.disposables.CompositeDisposable
 
@@ -26,6 +23,7 @@ class MainViewModel : ViewModel(){
     var DetailsDataLD: MutableLiveData<Details>? = null
     var LoginDataLD: MutableLiveData<LoginData>? = null
     var RegisterDataLD: MutableLiveData<LoginData>? = null
+    var NotificationLD : MutableLiveData<List<Data>>? = null
 
 
     var ItemIndex = MutableLiveData<Int>()
@@ -43,6 +41,7 @@ class MainViewModel : ViewModel(){
         DetailsDataLD= MutableLiveData()
         LoginDataLD= MutableLiveData()
         RegisterDataLD = MutableLiveData()
+        NotificationLD= MutableLiveData()
         ItemIndex = MutableLiveData<Int>()
         title = MutableLiveData<String>()
     }
@@ -72,13 +71,15 @@ class MainViewModel : ViewModel(){
 
     }
 
+    fun GetNotifications(){
+        DateRepoCompnay.GetNotifications(NotificationLD)
+
+    }
+
     fun addUser(user: User) {
 
             DateRepoCompnay.registerUser(user)
 
-    }
-    fun SwtichingCategories(index: Int) {
-        ItemIndex.postValue(index)
     }
 
 

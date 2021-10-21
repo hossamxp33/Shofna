@@ -1,5 +1,6 @@
 package com.example.shofna.datalayer
 
+import com.example.shofna.helper.PreferenceHelper
 import io.reactivex.schedulers.Schedulers
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -24,6 +25,8 @@ object ApiClient {
             .addInterceptor { chain: Interceptor.Chain ->
                 val originalRequest = chain.request()
                 val builder = originalRequest.newBuilder()
+                builder.addHeader("Authorization", "Bearer " + PreferenceHelper.getToken())
+
                 builder.addHeader("Accept", "application/json")
                 builder.addHeader("Content-Type", "application/json")
                 builder.addHeader("lang", "ar")
