@@ -84,10 +84,18 @@ open class HomeFragment : Fragment() {
 //
 
             ///////////// view pager slider
-            var indicator = view.pagerlayout.indicator
-            mypager.adapter = it?.let { it1 -> SliderAdapter(requireActivity(), it1.sliders) }
-            it.sliders.let { it1 -> Permissions().init(it1.size, context, this) }
-            indicator.setViewPager(mypager)
+            if (it.config[0].value == "1"){
+                view.pagerlayout.appbar.visibility = View.VISIBLE
+                var indicator = view.pagerlayout.indicator
+                mypager.adapter = it?.let { it1 -> SliderAdapter(requireActivity(), it1.sliders) }
+                it.sliders.let { it1 -> Permissions().init(it1.size, context, this) }
+                indicator.setViewPager(mypager)
+
+            }else{
+                view.pagerlayout.appbar.visibility = View.GONE
+
+            }
+
 
 
             adapter = NewsAdapter(context as FragmentActivity, it.items[index].items)

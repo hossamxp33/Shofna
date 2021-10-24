@@ -84,6 +84,13 @@
 
 
     </style>
+    <style name="Logo" parent="Base.Widget.Design.TabLayout">
+        <item name="android:textSize">24dp</item>
+        <item name="android:fontFamily">@font/kokn</item>
+        <item name="android:textColor">@color/activity</item>
+
+
+    </style>
 
     <style name="GlideSliderCardStyle" parent="Base.CardView">
         <item name="android:layout_height">match_parent</item>
