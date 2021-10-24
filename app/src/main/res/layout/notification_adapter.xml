@@ -76,7 +76,7 @@
 
             android:layout_marginRight="10dp"
             android:fontFamily="@font/kokn"
-            android:text="@{data.text}"
+            android:text="@{data.description}"
             android:textColor="@color/gray"
             android:textSize="12sp"
             app:layout_constraintLeft_toLeftOf="parent"

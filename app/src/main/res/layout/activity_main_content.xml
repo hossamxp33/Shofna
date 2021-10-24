@@ -28,23 +28,22 @@
 
                 >
 
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/Logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginLeft="24dp"
+                    android:padding="2dp"
+                    android:text="@string/app_name" />
+
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/toolbar_title"
                     android:layout_width="50dp"
                     android:layout_height="55dp"
-                    android:src="@drawable/logo"
-                    android:layout_gravity="center"
-                    />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/app_name"
-                    android:layout_marginLeft="24dp"
-                    android:layout_gravity="center"
-                    style="@style/Logo"
-                    android:padding="2dp"
-                    />
+                    android:layout_gravity="right"
+                    android:layout_marginRight="16dp"
+                    android:src="@drawable/logo" />
 
             </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
