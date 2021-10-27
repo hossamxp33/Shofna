@@ -22,6 +22,7 @@ class DataRepo {
         getServergetway().GetMainData()?.subscribeOn(Schedulers.io())
             ?.observeOn(AndroidSchedulers.mainThread())
             ?.map { data -> data }
+
             ?.subscribe(
                 { books ->
                     livedata?.postValue(books)
