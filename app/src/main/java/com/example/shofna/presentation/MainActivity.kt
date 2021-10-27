@@ -25,8 +25,10 @@ class MainActivity : AppCompatActivity() {
        PreferenceHelper(this)
 
         FirebaseApp.initializeApp(this)
-        FirebaseCrashlytics.getInstance()
         FirebaseMessaging.getInstance()
+        FirebaseMessaging.getInstance().subscribeToTopic(PreferenceHelper.getUserGroupId().toString())
+        FirebaseMessaging.getInstance().subscribeToTopic("100")
+
 
         ResourceUtil().changeLang("ar",this)
         supportFragmentManager.beginTransaction()
