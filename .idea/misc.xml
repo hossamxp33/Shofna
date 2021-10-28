@@ -17,6 +17,7 @@
         <entry key="..\:/Shofna/app/src/main/res/drawable/white_round_backg.xml" value="0.12962962962962962" />
         <entry key="..\:/Shofna/app/src/main/res/layout/activity_main.xml" value="0.2074074074074074" />
         <entry key="..\:/Shofna/app/src/main/res/layout/activity_main_content.xml" value="0.18" />
+        <entry key="..\:/Shofna/app/src/main/res/layout/activity_splash.xml" value="0.25833333333333336" />
         <entry key="..\:/Shofna/app/src/main/res/layout/bottom_nav_content.xml" value="0.16197916666666667" />
         <entry key="..\:/Shofna/app/src/main/res/layout/department_adapter.xml" value="0.22" />
         <entry key="..\:/Shofna/app/src/main/res/layout/depratment_fragment.xml" value="0.25" />
@@ -29,6 +30,9 @@
         <entry key="..\:/Shofna/app/src/main/res/layout/menu_fragment.xml" value="0.22870370370370371" />
         <entry key="..\:/Shofna/app/src/main/res/layout/news_adapter.xml" value="0.19025641025641027" />
         <entry key="..\:/Shofna/app/src/main/res/layout/news_details_fragment.xml" value="0.2" />
+        <entry key="..\:/Shofna/app/src/main/res/layout/notification_acitivty.xml" value="0.11855670103092783" />
+        <entry key="..\:/Shofna/app/src/main/res/layout/notification_adapter.xml" value="0.2" />
+        <entry key="..\:/Shofna/app/src/main/res/layout/notifications_fragment.xml" value="0.2814814814814815" />
         <entry key="..\:/Shofna/app/src/main/res/layout/pager_layout.xml" value="0.18229166666666666" />
         <entry key="..\:/Shofna/app/src/main/res/layout/recycles_layout.xml" value="0.30572916666666666" />
         <entry key="..\:/Shofna/app/src/main/res/layout/register_activity.xml" value="0.22870370370370371" />
@@ -37,15 +41,11 @@
         <entry key="..\:/Shofna/app/src/main/res/layout/shimmer_round_item.xml" value="0.16197916666666667" />
         <entry key="..\:/Shofna/app/src/main/res/layout/shimmer_viewpager.xml" value="0.1" />
         <entry key="..\:/Shofna/app/src/main/res/layout/slider_layout.xml" value="0.19025641025641027" />
+        <entry key="..\:/Shofna/app/src/main/res/layout/toolbar.xml" value="0.20185185185185187" />
         <entry key="..\:/Shofna/app/src/main/res/layout/viewpagerslide_home1.xml" value="0.33" />
         <entry key="..\:/Shofna/app/src/main/res/layout/web_view.xml" value="0.24537037037037038" />
         <entry key="..\:/Shofna/app/src/main/res/menu/bottom_menu.xml" value="0.16197916666666667" />
         <entry key="..\:/Shofna/app/src/main/res/menu/popup_menu.xml" value="0.2074074074074074" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_main_content.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/main_fragment.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/pager_layout.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/shimmer_viewpager.xml" value="0.1" />
       </map>
     </option>
   </component>

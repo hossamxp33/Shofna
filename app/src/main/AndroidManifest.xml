@@ -16,10 +16,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="10001" />
+
+
 
         <activity
-            android:name=".presentation.MainActivity"
-            android:exported="true">
+            android:name=".presentation.SplashActivity"
+            android:launchMode="singleTop"
+            >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,10 +35,29 @@
         </activity>
 
         <activity
+            android:name=".presentation.MainActivity"
+            android:exported="true">
+
+        </activity>
+
+        <activity
             android:name=".presentation.newsdetailsactivity.News_Details_Activity"
             android:theme="@style/AppTheme">
 
         </activity>
+        <!-- MainActivity is the parent for ResultActivity -->
+
+
+        <activity
+            android:name=".presentation.notifications.NotificationResultActivity"
+            android:parentActivityName=".presentation.SplashActivity"
+            android:windowSoftInputMode="stateVisible|adjustResize">
+            <intent-filter>
+                <action android:name="OPEN_ACTIVITY_1" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".presentation.webview.WebViewActivity"
             android:theme="@style/AppTheme">
@@ -44,15 +70,22 @@
             android:theme="@style/AppTheme">
 
         </activity>
+
+        <!-- MainActivity is the parent for ResultActivity -->
+
+
         <service
             android:name=".helper.MyFirebaseMessagingService">
             <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
             </intent-filter>
         </service>
+
+
         <meta-data
             android:name="firebase_crashlytics_collection_enabled"
             android:value="true" />
+
 
     </application>
 

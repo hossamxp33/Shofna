@@ -138,6 +138,25 @@ class DataRepo {
             )
 
     }
+    //OpenNotifications
+
+    @SuppressLint("CheckResult")
+    fun OpenNotifications(news_id: Int,livedata: MutableLiveData<ReciveNotification>?) {
+
+        getServergetway().OpenNotifications(news_id) .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .map { data -> data }
+            .subscribe(
+                { books ->
+
+                    livedata?.postValue(books)
+
+                },
+                {
+                }
+            )
+
+    }
     private fun postDataResponseForRegister(register: LoginModel) {
         registerMutableLiveData.postValue(register)
     }

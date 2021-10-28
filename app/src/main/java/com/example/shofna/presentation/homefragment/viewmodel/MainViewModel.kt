@@ -24,7 +24,7 @@ class MainViewModel : ViewModel(){
     var LoginDataLD: MutableLiveData<LoginData>? = null
     var RegisterDataLD: MutableLiveData<LoginData>? = null
     var NotificationLD : MutableLiveData<List<Data>>? = null
-
+    var oPenNotificationLD : MutableLiveData<ReciveNotification>? = null
 
     var ItemIndex = MutableLiveData<Int>()
     var title = MutableLiveData<String>()
@@ -42,6 +42,7 @@ class MainViewModel : ViewModel(){
         LoginDataLD= MutableLiveData()
         RegisterDataLD = MutableLiveData()
         NotificationLD= MutableLiveData()
+        oPenNotificationLD = MutableLiveData()
         ItemIndex = MutableLiveData<Int>()
         title = MutableLiveData<String>()
     }
@@ -73,6 +74,12 @@ class MainViewModel : ViewModel(){
 
     fun GetNotifications(){
         DateRepoCompnay.GetNotifications(NotificationLD)
+
+    }
+
+    //OpenNotifications
+    fun OpenNotifications(news_id:Int){
+        DateRepoCompnay.OpenNotifications(news_id,oPenNotificationLD)
 
     }
 

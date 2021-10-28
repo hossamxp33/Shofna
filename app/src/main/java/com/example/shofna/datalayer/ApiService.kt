@@ -1,10 +1,7 @@
 package com.example.shofna.datalayer
 
 
-import com.example.shofna.model.Details
-import com.example.shofna.model.LoginModel
-import com.example.shofna.model.MainView
-import com.example.shofna.model.Notification
+import com.example.shofna.model.*
 import io.reactivex.Observable
 import retrofit2.http.*
 
@@ -41,6 +38,14 @@ interface APIServices {
     @GET("notifications/index.json")/*{company_id}*/
     fun GetNotifications():
             Observable<Notification>
+
+
+
+    //https://shofna.codesroots.com/api/notifications/View/1383.json
+
+    @GET("notifications/View/{news_id}.json")
+    fun OpenNotifications( @Path("news_id") id: Int):
+            Observable<ReciveNotification>
 
 
 }

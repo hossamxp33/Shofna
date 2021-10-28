@@ -6,8 +6,6 @@ data class Data(
     var modified: Any,
     var photo: String,
     var description: String,
-
-
     var text: String,
     var user_id: Int
 )
