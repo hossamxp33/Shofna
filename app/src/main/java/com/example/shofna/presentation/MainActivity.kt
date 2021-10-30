@@ -42,34 +42,6 @@ class MainActivity : AppCompatActivity() {
             .subscribeToTopic(PreferenceHelper.getUserGroupId().toString())
         FirebaseMessaging.getInstance().subscribeToTopic("100")
 
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-//
-//            val importance = NotificationManager.IMPORTANCE_HIGH
-//
-//            val notificationChannel = NotificationChannel(
-//                NOTIFICATION_CHANNEL_ID,
-//                "NOTIFICATION_CHANNEL_NAME", importance
-//            )
-//            notificationChannel.description = ""
-//
-//            val mNotificationManager =
-//                getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-//
-//            assert(mNotificationManager != null)
-//            mNotificationManager.createNotificationChannel(notificationChannel)
-//        }
-//
-//
-//        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
-//            val token = task.result
-//
-//            if (token != null) {
-//
-//                return@OnCompleteListener
-//            }
-//
-//            // Get new FCM registration token
-//        })
 
 
         ResourceUtil().changeLang("ar", this)
@@ -83,12 +55,5 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
-    fun startNotificationActivity() {
-
-        val notificationIntent = Intent(this, NotificationResultActivity::class.java)
-        notificationIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-        startActivity(notificationIntent)
-    }
 
 }
