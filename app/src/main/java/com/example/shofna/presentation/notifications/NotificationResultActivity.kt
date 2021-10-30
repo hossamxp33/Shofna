@@ -82,8 +82,9 @@ class NotificationResultActivity : AppCompatActivity() {
      viewModel.oPenNotificationLD?.observe(this, Observer {
 
          ResourceUtil().loudImage(this, news_details_image, it.data.photo)
-        view.newsTitle.text = it.data.text
-        view.description.text = it.data.description
+         view.newsTitle.text = it.data.text
+         view.description.text = it.data.description
+         view. created.text= it.data.created
          view.progress.visibility = View.GONE
 
      })
