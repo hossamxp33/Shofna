@@ -34,6 +34,7 @@ class LoginFragment: Fragment() {
         viewModel.LoginDataLD?.observe(requireActivity() , Observer {
 
             if (it.token == null){
+
                 Toast.makeText(context , "خطأ في كلمة المرور او كلمة السر", Toast.LENGTH_SHORT).show()
 
             }else {
@@ -54,7 +55,6 @@ class LoginFragment: Fragment() {
 
         viewModel.errorLivedat.observe(requireActivity(), Observer {
             Toast.makeText(context , "خطأ في كلمة المرور او كلمة السر", Toast.LENGTH_SHORT).show()
-
         })
         return view
     }

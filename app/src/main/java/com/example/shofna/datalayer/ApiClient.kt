@@ -25,7 +25,9 @@ object ApiClient {
             .addInterceptor { chain: Interceptor.Chain ->
                 val originalRequest = chain.request()
                 val builder = originalRequest.newBuilder()
-                builder.addHeader("Authorization", "Bearer " + PreferenceHelper.getToken())
+              if (PreferenceHelper.getToken() != ""){
+                  builder.addHeader("Authorization", "Bearer " + PreferenceHelper.getToken())
+              }
 
                 builder.addHeader("Accept", "application/json")
                 builder.addHeader("Content-Type", "application/json")

@@ -72,7 +72,7 @@ public class PreferenceHelper {
 
 	public static String getToken() {
 
-		return app_prefs.getString(Token,"");
+		return app_prefs.getString(Token,null);
 	}
 
 	public static void setToken(String API_TOKEN, Context context) {

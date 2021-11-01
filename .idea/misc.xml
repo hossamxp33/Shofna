@@ -19,8 +19,11 @@
         <entry key="..\:/Shofna/app/src/main/res/layout/activity_main_content.xml" value="0.18" />
         <entry key="..\:/Shofna/app/src/main/res/layout/activity_splash.xml" value="0.25833333333333336" />
         <entry key="..\:/Shofna/app/src/main/res/layout/bottom_nav_content.xml" value="0.16197916666666667" />
+        <entry key="..\:/Shofna/app/src/main/res/layout/change_pw.xml" value="0.1640625" />
+        <entry key="..\:/Shofna/app/src/main/res/layout/contact_us_fragment.xml" value="0.301025641025641" />
         <entry key="..\:/Shofna/app/src/main/res/layout/department_adapter.xml" value="0.22" />
         <entry key="..\:/Shofna/app/src/main/res/layout/depratment_fragment.xml" value="0.25" />
+        <entry key="..\:/Shofna/app/src/main/res/layout/edit_user_fragment.xml" value="0.2" />
         <entry key="..\:/Shofna/app/src/main/res/layout/home_fragment.xml" value="0.2074074074074074" />
         <entry key="..\:/Shofna/app/src/main/res/layout/login_fragment.xml" value="0.2" />
         <entry key="..\:/Shofna/app/src/main/res/layout/main_adapter.xml" value="0.22" />
@@ -36,7 +39,7 @@
         <entry key="..\:/Shofna/app/src/main/res/layout/pager_layout.xml" value="0.18229166666666666" />
         <entry key="..\:/Shofna/app/src/main/res/layout/recycles_layout.xml" value="0.30572916666666666" />
         <entry key="..\:/Shofna/app/src/main/res/layout/register_activity.xml" value="0.22870370370370371" />
-        <entry key="..\:/Shofna/app/src/main/res/layout/register_fragment.xml" value="0.18072916666666666" />
+        <entry key="..\:/Shofna/app/src/main/res/layout/register_fragment.xml" value="0.25" />
         <entry key="..\:/Shofna/app/src/main/res/layout/related_news_adapter.xml" value="0.22" />
         <entry key="..\:/Shofna/app/src/main/res/layout/shimmer_round_item.xml" value="0.16197916666666667" />
         <entry key="..\:/Shofna/app/src/main/res/layout/shimmer_viewpager.xml" value="0.1" />
@@ -44,12 +47,13 @@
         <entry key="..\:/Shofna/app/src/main/res/layout/toolbar.xml" value="0.20185185185185187" />
         <entry key="..\:/Shofna/app/src/main/res/layout/viewpagerslide_home1.xml" value="0.33" />
         <entry key="..\:/Shofna/app/src/main/res/layout/web_view.xml" value="0.24537037037037038" />
+        <entry key="..\:/Shofna/app/src/main/res/layout/who_us_fragment.xml" value="0.25" />
         <entry key="..\:/Shofna/app/src/main/res/menu/bottom_menu.xml" value="0.16197916666666667" />
         <entry key="..\:/Shofna/app/src/main/res/menu/popup_menu.xml" value="0.2074074074074074" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_15_PREVIEW" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

@@ -26,15 +26,14 @@ class RegisterActivity: AppCompatActivity() {
       PreferenceHelper(this)
         setContentView(R.layout.register_activity)
 
-        if (checkUserLogin(this)) {
-
-            val homeIntent = Intent(this, MainActivity::class.java)
-            overridePendingTransition(R.anim.slide_right, R.anim.slide_left);
-
-            startActivity(homeIntent)
-
-
-        }
+//        if (checkUserLogin(this)) {
+//
+//            val homeIntent = Intent(this, MainActivity::class.java)
+//            overridePendingTransition(R.anim.slide_right, R.anim.slide_left);
+//            startActivity(homeIntent)
+//
+//
+//        }
 
         tab_layout.setBackgroundColor(ContextCompat.getColor(this, R.color.light_gray))
         // Number Of Tabs

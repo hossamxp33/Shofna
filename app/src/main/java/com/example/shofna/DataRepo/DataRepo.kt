@@ -5,9 +5,10 @@ import androidx.lifecycle.MutableLiveData
 
 import io.reactivex.schedulers.Schedulers
 import android.content.Context
-import android.util.Log
+import android.provider.ContactsContract
 import com.example.shofna.datalayer.APIServices
 import com.example.shofna.datalayer.ApiClient
+import com.example.shofna.helper.PreferenceHelper
 import com.example.shofna.model.*
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -35,6 +36,23 @@ class DataRepo {
     }
 
 
+    //getUserData
+    @SuppressLint("CheckResult")
+    fun getUserData(userid: Int, livedata: MutableLiveData<LoginModel>?) {
+        getServergetway().getUserData(userid).subscribeOn(Schedulers.io())
+            ?.observeOn(AndroidSchedulers.mainThread())
+            ?.map { data -> data }
+
+            ?.subscribe(
+                { books ->
+                    livedata?.postValue(books)
+
+                },
+                { error ->
+
+                }
+            )
+    }
     @SuppressLint("CheckResult")
     fun GetNewsDetails(item_id: Int, livedata: MutableLiveData<Details>?) {
         getServergetway().GetNewsDetails(item_id)?.subscribeOn(Schedulers.io())
@@ -50,6 +68,9 @@ class DataRepo {
                 }
             )
     }
+
+
+
 
     @SuppressLint("CheckResult")
     fun Login(
@@ -75,24 +96,44 @@ class DataRepo {
             )
 
     }
+    //editUserData
+    @SuppressLint("CheckResult")
+    fun editUserData(userid: Int,username: String?, mobile: String?, email: String?,
+        livedata: MutableLiveData<EditUserData>?,
+        errorLivedat: MutableLiveData<String>,
+        loadingLivedat: MutableLiveData<Boolean>
+    ) {
+        getServergetway().editUserData(userid, username, mobile, email)
+            ?.subscribeOn(Schedulers.io())
+            ?.observeOn(AndroidSchedulers.mainThread())
+            ?.map { data -> data }
+            ?.subscribe(
+                { books ->
+                    livedata?.postValue(books)
+                    loadingLivedat.postValue(false)
+                },
+                { error ->
+                    errorLivedat.postValue(error.toString());loadingLivedat.postValue(false)
+
+                }
+            )
+    }
 
     @SuppressLint("CheckResult")
-    fun Register(
-        username: String,
-        password: String,
-        repassword: String,
-        livedata: MutableLiveData<LoginData>?,
+    fun Register(username: String, mobile:  String?, email: String?, password: String,
+
+        livedata: MutableLiveData<LoginModel>?,
         errorLiveData: MutableLiveData<String>,
         loadingLivedata: MutableLiveData<Boolean>
     ) {
 
-        getServergetway().userregister(username, password,repassword)
+        getServergetway().userregister(username ,mobile,email, password)
             ?.subscribeOn(Schedulers.io())
             ?.observeOn(AndroidSchedulers.mainThread())
             ?.map { data -> data }
             ?.subscribe(
                 { data ->
-                    livedata?.postValue(data.data)
+                    livedata?.postValue(data)
                     loadingLivedata.postValue(false)
 
                 }, {
@@ -101,30 +142,28 @@ class DataRepo {
             )
 
     }
+    @SuppressLint("CheckResult")
 
-     fun registerUser(user: User) {
-        getServergetway().userregister(
-            user.username,
-            user.password,
-            user.repassword
-        )
-            ?.subscribeOn(Schedulers.io())
-            ?.observeOn(AndroidSchedulers.mainThread())?.let {
-                mCompositeDisposable.add(
-                it
-                    ?.subscribe({ register: LoginModel -> postDataResponseForRegister(register) } as ((LoginModel?) -> Unit)?) { throwable: Throwable ->
-                        error(
-                            throwable
-                        )
-                    })
-            }
+    fun ChangePassword(password:String,livedata: MutableLiveData<EditUserData>?) {
+
+        getServergetway().ChangePassword(password, PreferenceHelper.getUserId().toLong())
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .map { data -> data }
+            .subscribe(
+                { books ->
+                    livedata?.postValue(books)
+                },
+                { error ->
+
+                }
+            )
     }
-
 
     @SuppressLint("CheckResult")
     fun GetNotifications(livedata: MutableLiveData<List<Data>>?) {
 
-        getServergetway().GetNotifications() .subscribeOn(Schedulers.io())
+        getServergetway().GetNotifications().subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .map { data -> data }
             .subscribe(
@@ -141,9 +180,9 @@ class DataRepo {
     //OpenNotifications
 
     @SuppressLint("CheckResult")
-    fun OpenNotifications(news_id: Int,livedata: MutableLiveData<ReciveNotification>?) {
+    fun OpenNotifications(news_id: Int, livedata: MutableLiveData<ReciveNotification>?) {
 
-        getServergetway().OpenNotifications(news_id) .subscribeOn(Schedulers.io())
+        getServergetway().OpenNotifications(news_id).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .map { data -> data }
             .subscribe(
@@ -157,6 +196,7 @@ class DataRepo {
             )
 
     }
+
     private fun postDataResponseForRegister(register: LoginModel) {
         registerMutableLiveData.postValue(register)
     }

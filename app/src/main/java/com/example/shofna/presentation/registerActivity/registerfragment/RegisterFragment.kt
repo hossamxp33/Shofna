@@ -28,38 +28,54 @@ class RegisterFragment: Fragment() { private val viewModel: MainViewModel by laz
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val view = inflater.inflate(R.layout.register_fragment, container, false)
+        var emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
 
 
         view.register.setOnClickListener {
-            val user = User()
-            user.username = view.username?.text.toString()
-            user.password = view.password?.text.toString()
-            user.repassword = view.re_password?.text.toString()
-            viewModel.addUser(user)
+            val password = view.password?.text.toString()
+            if (view.username.text.toString() == "" && view.mobile.text.toString() == "" && view.email.text.toString() == "") {
+                Toast.makeText(requireContext(),"الرجاء أكمل البيانات",Toast.LENGTH_SHORT).show()
+
+            } else     if(!view.email.text.toString().trim { it <= ' ' }.matches(emailPattern.toRegex())){
+                Toast.makeText(requireContext(), "valid email address", Toast.LENGTH_SHORT).show()
+
+            }else
+
+            {
+                viewModel.GetRegisterData(view.username.text.toString(),view.mobile.text.toString(),view.email.text.toString(),password)
+
+            }
+
+
         }
 
         viewModel.RegisterDataLD?.observe(requireActivity() , Observer {
 
-            if (it.token == null){
-                Toast.makeText(context , "خطأ في كلمة المرور او كلمة السر", Toast.LENGTH_SHORT).show()
+            if (it.success == false){
+                Toast.makeText(context , it.data?.message, Toast.LENGTH_SHORT).show()
 
             }else {
 
-                PreferenceHelper.setUsername(it.username)
-                PreferenceHelper.setToken(it.token,context)
-                PreferenceHelper.setUserId(it.userid!!)
+                PreferenceHelper.setUsername(it.data?.username)
 
-                val intent = Intent(requireActivity(), MainActivity::class.java)
+                PreferenceHelper.setToken(it.data?.token,context)
 
-                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+//                PreferenceHelper.setUserId(it.data?.userid!!)
 
-                startActivity(intent)
+                Toast.makeText(context , "تم انشاء حساب", Toast.LENGTH_SHORT).show()
+
+//
+//                val intent = Intent(requireActivity(), MainActivity::class.java)
+//
+//                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+//
+//                startActivity(intent)
             }
 
         })
 
         viewModel.errorLivedat.observe(requireActivity(), Observer {
-            Toast.makeText(context , "خطأ في كلمة المرور او كلمة السر", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context ,it, Toast.LENGTH_SHORT).show()
 
         })
         return view

@@ -1,6 +1,7 @@
 package com.example.shofna.presentation.homefragment.viewmodel
 
 import android.content.Context
+import android.text.Editable
 import androidx.databinding.ObservableField
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -21,12 +22,19 @@ class MainViewModel : ViewModel(){
 
     var MainDataLD: MutableLiveData<MainView>? = null
     var DetailsDataLD: MutableLiveData<Details>? = null
+
     var LoginDataLD: MutableLiveData<LoginData>? = null
-    var RegisterDataLD: MutableLiveData<LoginData>? = null
+
+    var EditDataLD: MutableLiveData<EditUserData>? = null
+
+    var RegisterDataLD: MutableLiveData<LoginModel>? = null
+
     var NotificationLD : MutableLiveData<List<Data>>? = null
+
     var oPenNotificationLD : MutableLiveData<ReciveNotification>? = null
 
     var ItemIndex = MutableLiveData<Int>()
+
     var title = MutableLiveData<String>()
 
     var visibility = ObservableField<Int>();
@@ -35,12 +43,15 @@ class MainViewModel : ViewModel(){
         errorLivedat = MutableLiveData()
         loadingLivedat = MutableLiveData()
         visibility.set(8)
-
         MainDataLD = MutableLiveData()
-
         DetailsDataLD= MutableLiveData()
+
         LoginDataLD= MutableLiveData()
-        RegisterDataLD = MutableLiveData()
+
+        EditDataLD= MutableLiveData()
+
+       RegisterDataLD = MutableLiveData()
+
         NotificationLD= MutableLiveData()
         oPenNotificationLD = MutableLiveData()
         ItemIndex = MutableLiveData<Int>()
@@ -53,6 +64,11 @@ class MainViewModel : ViewModel(){
 
     }
 
+//getUserData
+fun getUserData(userid:Int) {
+    DateRepoCompnay.getUserData(userid,RegisterDataLD)
+
+}
 
     fun GetNewsDetails(item_id:Int) {
         DateRepoCompnay.GetNewsDetails(item_id,DetailsDataLD)
@@ -65,13 +81,27 @@ class MainViewModel : ViewModel(){
 
     }
 
+    //editUserData
 
-    fun GetRegisterData(username:String,password:String,repassword:String) {
+    fun editUserData(userid: Int, username: String?, mobile: String?, email: String?) {
 
-        DateRepoCompnay.Register(username,password,repassword,LoginDataLD,errorLivedat,loadingLivedat)
+        DateRepoCompnay.editUserData(userid,username,mobile,email,EditDataLD,errorLivedat,loadingLivedat)
 
     }
 
+    fun GetRegisterData(username: String,
+                        mobile: String?,
+                        email: String?,
+                        password: String) {
+
+        DateRepoCompnay.Register(username,mobile,email,password,RegisterDataLD,errorLivedat,loadingLivedat)
+
+    }
+
+    fun ChangePassword(password:String){
+        DateRepoCompnay.ChangePassword(password,EditDataLD)
+
+    }
     fun GetNotifications(){
         DateRepoCompnay.GetNotifications(NotificationLD)
 
@@ -83,11 +113,7 @@ class MainViewModel : ViewModel(){
 
     }
 
-    fun addUser(user: User) {
 
-            DateRepoCompnay.registerUser(user)
-
-    }
 
 
 
