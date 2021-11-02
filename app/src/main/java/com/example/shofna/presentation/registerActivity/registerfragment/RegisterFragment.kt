@@ -52,7 +52,7 @@ class RegisterFragment: Fragment() { private val viewModel: MainViewModel by laz
         viewModel.RegisterDataLD?.observe(requireActivity() , Observer {
 
             if (it.success == false){
-                Toast.makeText(context , it.data?.message, Toast.LENGTH_SHORT).show()
+                Toast.makeText(context , "اسم المستخدم او الايميل مستخدم من قبل", Toast.LENGTH_SHORT).show()
 
             }else {
 
@@ -65,17 +65,17 @@ class RegisterFragment: Fragment() { private val viewModel: MainViewModel by laz
                 Toast.makeText(context , "تم انشاء حساب", Toast.LENGTH_SHORT).show()
 
 //
-//                val intent = Intent(requireActivity(), MainActivity::class.java)
-//
-//                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-//
-//                startActivity(intent)
+                val intent = Intent(requireActivity(), MainActivity::class.java)
+
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+
+                startActivity(intent)
             }
 
         })
 
         viewModel.errorLivedat.observe(requireActivity(), Observer {
-            Toast.makeText(context ,it, Toast.LENGTH_SHORT).show()
+            Toast.makeText(context , "اسم المستخدم او الايميل مستخدم من قبل", Toast.LENGTH_SHORT).show()
 
         })
         return view

@@ -30,13 +30,15 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         super.onMessageReceived(remoteMessage)
-        val myJson: JSONObject? = null
+        var myJson: JSONObject? = null
         val title = ""
         val description = ""
-        val click = ""
         val id1 = remoteMessage.data["company_id"]
         if (remoteMessage.notification != null){
-        val title =    remoteMessage.notification!!.title
+            myJson = JSONObject(remoteMessage!!.data!! as Map<*, *>?)
+           var click = myJson!!.optString("click_action").toString()
+
+            val title =    remoteMessage.notification!!.title
             val body = remoteMessage.notification!!.body
             NotificationHelper().sendNotification(applicationContext,title!!,body!!,click,id1!!)
 
