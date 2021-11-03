@@ -31,14 +31,14 @@ import org.jetbrains.anko.support.v4.find
 class RegisterFragment: Fragment() { private val viewModel: MainViewModel by lazy {
     ViewModelProviders.of(this).get(MainViewModel::class.java)
 }
-     val progressBar : ProgressBar by lazy {find(R.id.progress) }
+     val progressBar : ProgressBar ?=null
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val view = inflater.inflate(R.layout.register_fragment, container, false)
         var emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
 
 viewModel.processVisibility.observe(requireActivity()){
-    progressBar.isVisible = it
+    view.progress?.isVisible = it
 }
         view.register.setOnClickListener {
             val password = view.password?.text.toString()
