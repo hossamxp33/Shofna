@@ -131,13 +131,15 @@
 
 
             <TextView
-                android:id="@+id/gotoregister"
+                android:id="@+id/forgetPW"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                style="@style/topicTitleTextStyle"
                 android:layout_marginTop="24dp"
                 android:fontFamily="@font/kokn"
+                android:text="@string/forgetPW"
                 android:gravity="center"
-                android:visibility="gone"
+                android:visibility="visible"
                 android:textColor="@color/colorPrimary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -157,7 +159,7 @@
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/gotoregister"
+                app:layout_constraintTop_toBottomOf="@+id/forgetPW"
                 app:layout_constraintWidth_percent="0.45" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 

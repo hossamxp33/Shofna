@@ -75,9 +75,6 @@ open class HomeFragment : Fragment() {
         val mypager = view.pagerlayout.pager
 
         viewModel.MainDataLD?.observe(viewLifecycleOwner, Observer {
-//            datArray.clear()
-//
-
 
             ///////////// view pager slider
             if (it.config[0].value == "1"){
@@ -93,7 +90,6 @@ open class HomeFragment : Fragment() {
             }
 
 if (index !=null){
-
     adapter = NewsAdapter(context as FragmentActivity, it.items[index!!].items!!)
     view.pagerlayout.news_recycle.layoutManager = LinearLayoutManager(activity)
     view.pagerlayout.news_recycle?.adapter = adapter
@@ -105,7 +101,7 @@ if (index !=null){
     view.progress.visibility = View.GONE
 }
 
-            stoploading()
+ stoploading()
 
 
         })
@@ -122,22 +118,7 @@ if (index !=null){
      fun ItemSelected() {
        ( context as MainActivity).bottom_nav_bar.setItemSelected(R.id.home)
     }
-    fun SwitchingCategories() {
-        viewModel.ItemIndex.observe(requireActivity(), androidx.lifecycle.Observer {
-            try {
-                datArray.clear()
 
-                datArray.addAll(MainData!!.items.get(it).items!!)
-
-                adapter!!.notifyDataSetChanged()
-
-            } catch (e: Exception) {
-
-            }
-
-
-        })
-    }
 
 
     override fun onResume() {

@@ -10,6 +10,8 @@
     <string name="aboutus">About Us</string>
 
     <string name="login">Login</string>
+    <string name="forgetPW">Forgot Password</string>
+
     <string name="department">department </string>
 <string name="notification">notification</string>
     <string name="logout">Logout</string>
