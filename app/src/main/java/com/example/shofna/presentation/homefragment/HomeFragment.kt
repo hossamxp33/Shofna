@@ -36,7 +36,7 @@ open class HomeFragment : Fragment() {
 
     lateinit var MainAdapter: Main_Adapter
 
-    var index: Int = 0
+    var index: Int ? = null
     var datArray = ArrayList<ItemX>()
     var adapter: NewsAdapter? = null
     var MainData: MainView? = null
@@ -75,13 +75,9 @@ open class HomeFragment : Fragment() {
         val mypager = view.pagerlayout.pager
 
         viewModel.MainDataLD?.observe(viewLifecycleOwner, Observer {
-
-
-//            MainAdapter = Main_Adapter(viewModel, context, it.items)
-//            view.pagerlayout.departments.layoutManager =
-//                LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
-//            view.pagerlayout.departments.adapter = MainAdapter;
+//            datArray.clear()
 //
+
 
             ///////////// view pager slider
             if (it.config[0].value == "1"){
@@ -96,13 +92,22 @@ open class HomeFragment : Fragment() {
 
             }
 
+if (index !=null){
 
+    adapter = NewsAdapter(context as FragmentActivity, it.items[index!!].items!!)
+    view.pagerlayout.news_recycle.layoutManager = LinearLayoutManager(activity)
+    view.pagerlayout.news_recycle?.adapter = adapter
+    view.progress.visibility = View.GONE
+}else{
+    adapter = NewsAdapter(context as FragmentActivity, it.allitems)
+    view.pagerlayout.news_recycle.layoutManager = LinearLayoutManager(activity)
+    view.pagerlayout.news_recycle?.adapter = adapter
+    view.progress.visibility = View.GONE
+}
 
-            adapter = NewsAdapter(context as FragmentActivity, it.items[index].items)
-            view.pagerlayout.news_recycle.layoutManager = LinearLayoutManager(activity)
-            view.pagerlayout.news_recycle?.adapter = adapter
-            view.progress.visibility = View.GONE
             stoploading()
+
+
         })
 
 
@@ -122,7 +127,7 @@ open class HomeFragment : Fragment() {
             try {
                 datArray.clear()
 
-                datArray.addAll(MainData!!.items.get(it).items)
+                datArray.addAll(MainData!!.items.get(it).items!!)
 
                 adapter!!.notifyDataSetChanged()
 

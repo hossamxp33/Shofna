@@ -16,6 +16,7 @@ class MainViewModel : ViewModel(){
     var DateRepoCompnay: DataRepo = DataRepo()
     var mCompositeDisposable = CompositeDisposable()
 
+    var processVisibility = MutableLiveData(false)
     var errorLivedat: MutableLiveData<String> = MutableLiveData()
 
     var loadingLivedat: MutableLiveData<Boolean> = MutableLiveData()
@@ -40,6 +41,8 @@ class MainViewModel : ViewModel(){
     var visibility = ObservableField<Int>();
 
     init {
+
+        processVisibility = MutableLiveData(false)
         errorLivedat = MutableLiveData()
         loadingLivedat = MutableLiveData()
         visibility.set(8)
