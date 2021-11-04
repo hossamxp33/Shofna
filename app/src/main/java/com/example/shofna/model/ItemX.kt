@@ -5,15 +5,15 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class ItemX(
-    var description: String,
-    var id: Int,
-    var ishowen: Int,
-    var name: String,
-    var link : String,
-    var created: String,
-    var photo: String,
-    var price: Int,
-    var subcategory_id: Int
+    var name: String?=null,
+    var description: String?=null,
+    var id: Int?=null,
+    var ishowen: Int?=null,
+    var link : String?=null,
+    var created: String?=null,
+    var photo: String?=null,
+    var price: Int?=null,
+    var subcategory_id: Int?=null
 ): Parcelable {
 
 }

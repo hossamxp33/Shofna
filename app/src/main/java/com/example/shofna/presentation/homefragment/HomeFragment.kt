@@ -36,7 +36,7 @@ open class HomeFragment : Fragment() {
 
     lateinit var MainAdapter: Main_Adapter
 
-    var index: Int = 0
+    var index: Int ? = null
     var datArray = ArrayList<ItemX>()
     var adapter: NewsAdapter? = null
     var MainData: MainView? = null
@@ -76,13 +76,6 @@ open class HomeFragment : Fragment() {
 
         viewModel.MainDataLD?.observe(viewLifecycleOwner, Observer {
 
-
-//            MainAdapter = Main_Adapter(viewModel, context, it.items)
-//            view.pagerlayout.departments.layoutManager =
-//                LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
-//            view.pagerlayout.departments.adapter = MainAdapter;
-//
-
             ///////////// view pager slider
             if (it.config[0].value == "1"){
                 view.pagerlayout.appbar.visibility = View.VISIBLE
@@ -96,13 +89,21 @@ open class HomeFragment : Fragment() {
 
             }
 
+if (index !=null){
+    adapter = NewsAdapter(context as FragmentActivity, it.items[index!!].items!!)
+    view.pagerlayout.news_recycle.layoutManager = LinearLayoutManager(activity)
+    view.pagerlayout.news_recycle?.adapter = adapter
+    view.progress.visibility = View.GONE
+}else{
+    adapter = NewsAdapter(context as FragmentActivity, it.allitems)
+    view.pagerlayout.news_recycle.layoutManager = LinearLayoutManager(activity)
+    view.pagerlayout.news_recycle?.adapter = adapter
+    view.progress.visibility = View.GONE
+}
+
+ stoploading()
 
 
-            adapter = NewsAdapter(context as FragmentActivity, it.items[index].items)
-            view.pagerlayout.news_recycle.layoutManager = LinearLayoutManager(activity)
-            view.pagerlayout.news_recycle?.adapter = adapter
-            view.progress.visibility = View.GONE
-            stoploading()
         })
 
 
@@ -117,22 +118,7 @@ open class HomeFragment : Fragment() {
      fun ItemSelected() {
        ( context as MainActivity).bottom_nav_bar.setItemSelected(R.id.home)
     }
-    fun SwitchingCategories() {
-        viewModel.ItemIndex.observe(requireActivity(), androidx.lifecycle.Observer {
-            try {
-                datArray.clear()
 
-                datArray.addAll(MainData!!.items.get(it).items)
-
-                adapter!!.notifyDataSetChanged()
-
-            } catch (e: Exception) {
-
-            }
-
-
-        })
-    }
 
 
     override fun onResume() {

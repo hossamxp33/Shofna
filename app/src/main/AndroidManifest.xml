@@ -63,6 +63,11 @@
             android:theme="@style/AppTheme">
 
         </activity>
+        <activity
+            android:name=".presentation.registerActivity.loginfragment.ForgotPasswordActivity"
+            android:theme="@style/AppTheme">
+
+        </activity>
 
 
         <activity

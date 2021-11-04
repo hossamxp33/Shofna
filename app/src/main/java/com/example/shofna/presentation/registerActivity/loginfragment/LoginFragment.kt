@@ -13,6 +13,8 @@ import com.example.shofna.R
 import com.example.shofna.helper.PreferenceHelper
 import com.example.shofna.presentation.MainActivity
 import com.example.shofna.presentation.homefragment.viewmodel.MainViewModel
+import com.example.shofna.presentation.registerActivity.RegisterActivity
+import com.example.shofna.presentation.webview.WebViewActivity
 import kotlinx.android.synthetic.main.login_fragment.view.*
 import kotlinx.android.synthetic.main.menu_fragment.view.login
 
@@ -29,6 +31,12 @@ class LoginFragment: Fragment() {
 
         view.login.setOnClickListener {
             viewModel.GetLoginData(view.username.text.toString(), view.password.text.toString())
+        }
+
+        view.forgetPW.setOnClickListener {
+            val intent = Intent(this.activity, ForgotPasswordActivity::class.java)
+
+            (requireActivity()).startActivity(intent)
         }
 
         viewModel.LoginDataLD?.observe(requireActivity() , Observer {
@@ -52,6 +60,8 @@ class LoginFragment: Fragment() {
             }
 
         })
+
+
 
         viewModel.errorLivedat.observe(requireActivity(), Observer {
             Toast.makeText(context , "خطأ في كلمة المرور او كلمة السر", Toast.LENGTH_SHORT).show()

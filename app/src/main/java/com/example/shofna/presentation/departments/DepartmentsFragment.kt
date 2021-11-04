@@ -74,7 +74,7 @@ import org.jetbrains.anko.support.v4.find
 
             MainData = it
 
-            datArray.addAll(it.items.get(index).items)
+            datArray.addAll(it.items.get(index).items!!)
 
 
 
@@ -96,7 +96,7 @@ import org.jetbrains.anko.support.v4.find
             try {
                 datArray.clear()
 
-                datArray.addAll(MainData!!.items.get(it).items)
+                datArray.addAll(MainData!!.items.get(it).items!!)
 
                 adapter!!.notifyDataSetChanged()
 
