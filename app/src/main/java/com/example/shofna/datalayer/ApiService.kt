@@ -52,9 +52,14 @@ interface APIServices {
             Observable<EditUserData>
 
 
+    @FormUrlEncoded
+    @POST("Users/forgotpassword.json")
+    fun forgotPassword(@Field("email") password: String):
+            Observable<ForgetPasswordData>
 
 
-  //  users/view/1093.json
+
+    //  users/view/1093.json
 
     @GET(" users/view/{user_id}.json")
     fun getUserData( @Path("user_id") id: Int):

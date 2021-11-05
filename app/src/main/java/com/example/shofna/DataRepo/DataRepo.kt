@@ -142,6 +142,7 @@ class DataRepo {
             )
 
     }
+
     @SuppressLint("CheckResult")
 
     fun ChangePassword(password:String,livedata: MutableLiveData<EditUserData>?) {
@@ -160,6 +161,23 @@ class DataRepo {
             )
     }
 
+//forgotPassword
+@SuppressLint("CheckResult")
+    fun forgotPassword(email:String,livedata: MutableLiveData<ForgetPasswordData>?) {
+
+        getServergetway().forgotPassword(email)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .map { data -> data }
+            .subscribe(
+                { books ->
+                    livedata?.postValue(books)
+                },
+                { error ->
+
+                }
+            )
+    }
     @SuppressLint("CheckResult")
     fun GetNotifications(livedata: MutableLiveData<List<Data>>?) {
 
