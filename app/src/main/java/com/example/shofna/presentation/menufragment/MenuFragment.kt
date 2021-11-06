@@ -35,9 +35,17 @@ class MenuFragment : Fragment() {
             view.myname.text = PreferenceHelper.getUsername()
 
         if (PreferenceHelper.getUserId() > 0)
-            view.loginLayout.setVisibility(View.GONE) else view.logoutLayout.setVisibility(
-            View.GONE
-        )
+            view.loginLayout.setVisibility(View.GONE) else {
+            view.logoutLayout.setVisibility(
+                View.GONE
+            ); view.EditProfileLayout.setVisibility(
+                View.GONE
+            )
+            view.EditPwLayout.setVisibility(
+                View.GONE
+            )
+        }
+
         return view.root
 
     }
