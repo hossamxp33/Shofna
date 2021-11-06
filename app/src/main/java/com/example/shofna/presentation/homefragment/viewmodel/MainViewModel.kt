@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.shofna.DataRepo.DataRepo
 import com.example.shofna.model.*
+import com.example.shofna.presentation.registerActivity.loginfragment.ForgotPasswordActivity
 
 import io.reactivex.disposables.CompositeDisposable
 
@@ -28,6 +29,8 @@ class MainViewModel : ViewModel(){
 
     var EditDataLD: MutableLiveData<EditUserData>? = null
 
+    var ForgotPasswordLD: MutableLiveData<ForgetPasswordData>? = null
+
     var RegisterDataLD: MutableLiveData<LoginModel>? = null
 
     var NotificationLD : MutableLiveData<List<Data>>? = null
@@ -48,13 +51,10 @@ class MainViewModel : ViewModel(){
         visibility.set(8)
         MainDataLD = MutableLiveData()
         DetailsDataLD= MutableLiveData()
-
         LoginDataLD= MutableLiveData()
-
         EditDataLD= MutableLiveData()
-
-       RegisterDataLD = MutableLiveData()
-
+        ForgotPasswordLD= MutableLiveData()
+        RegisterDataLD = MutableLiveData()
         NotificationLD= MutableLiveData()
         oPenNotificationLD = MutableLiveData()
         ItemIndex = MutableLiveData<Int>()
@@ -103,7 +103,10 @@ fun getUserData(userid:Int) {
 
     fun ChangePassword(password:String){
         DateRepoCompnay.ChangePassword(password,EditDataLD)
+    }
 
+    fun forgotPassword(email: String?){
+        DateRepoCompnay.forgotPassword(email!!,ForgotPasswordLD)
     }
     fun GetNotifications(){
         DateRepoCompnay.GetNotifications(NotificationLD)
