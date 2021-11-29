@@ -8,7 +8,6 @@
     <string name="related">Related News</string>
     <string name="contact">Contact Us</string>
     <string name="aboutus">About Us</string>
-    <string name="forgetPW">Forgot Password</string>
 
     <string name="login">Login</string>
     <string name="department">department </string>
@@ -16,6 +15,7 @@
     <string name="logout">Logout</string>
     <string name="editprofile">Edit Your Profile</string>
     <string name="editpw">Change Your Password</string>
+    <string name="forgetPW">Forgot Password</string>
 
     <string name="register">register</string>
     <string name="edit_info">Edit Profile</string>

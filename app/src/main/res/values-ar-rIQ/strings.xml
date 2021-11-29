@@ -9,7 +9,6 @@
     <string name="related">أخبار ذات صلة</string>
     <string name="contact">تواصل معنا</string>
     <string name="aboutus"> من نحن </string>
-    <string name="forgetPW"> نسيت كلمة السر؟</string>
 
     <string name="editprofile">تعديل ملفك الشخصي</string>
     <string name="editpw">تغيير كلمة المرور</string>
@@ -20,6 +19,7 @@
     <string name="edit_info">تعديل الملف الشخصي</string>
     <string name="mobile">رقم الهاتف </string>
     <string name="email">البريد الالكتروني </string>
+    <string name="forgetPW"> نسيت كلمة السر؟</string>
 
 
     <string name="logout">تسجيل خروج</string>
