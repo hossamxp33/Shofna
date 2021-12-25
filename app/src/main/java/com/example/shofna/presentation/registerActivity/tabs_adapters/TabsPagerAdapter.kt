@@ -7,6 +7,8 @@ import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.shofna.presentation.registerActivity.loginfragment.LoginFragment
 import com.example.shofna.presentation.registerActivity.registerfragment.RegisterFragment
+import com.example.shofna.presentation.registerActivity.webviewlogin.WebViewLogin
+import com.example.shofna.presentation.registerActivity.webviewlogin.WebViewRegister
 
 
 class TabsPagerAdapter(fm: FragmentManager, lifecycle: Lifecycle, private var numberOfTabs: Int) : FragmentStateAdapter(fm, lifecycle) {
@@ -18,7 +20,7 @@ class TabsPagerAdapter(fm: FragmentManager, lifecycle: Lifecycle, private var nu
                 val bundle = Bundle()
                 bundle.putString("fragmentName", "Music Fragment")
                 val login =
-                    LoginFragment()
+                    WebViewLogin()
                 login.arguments = bundle
                 return login
             }
@@ -27,7 +29,7 @@ class TabsPagerAdapter(fm: FragmentManager, lifecycle: Lifecycle, private var nu
                 val bundle = Bundle()
                 bundle.putString("fragmentName", "Movies Fragment")
                 val registerFragment =
-                    RegisterFragment()
+                    WebViewRegister()
                 registerFragment.arguments = bundle
                 return registerFragment
             }

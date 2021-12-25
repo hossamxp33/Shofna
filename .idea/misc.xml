@@ -26,6 +26,7 @@
         <entry key="..\:/Shofna/app/src/main/res/layout/depratment_fragment.xml" value="0.25" />
         <entry key="..\:/Shofna/app/src/main/res/layout/home_fragment.xml" value="0.2074074074074074" />
         <entry key="..\:/Shofna/app/src/main/res/layout/login_fragment.xml" value="0.2" />
+        <entry key="..\:/Shofna/app/src/main/res/layout/login_web_view.xml" value="0.301025641025641" />
         <entry key="..\:/Shofna/app/src/main/res/layout/main_adapter.xml" value="0.22" />
         <entry key="..\:/Shofna/app/src/main/res/layout/main_fragment.xml" value="0.16197916666666667" />
         <entry key="..\:/Shofna/app/src/main/res/layout/main_frame_content.xml" value="0.2074074074074074" />
@@ -40,6 +41,7 @@
         <entry key="..\:/Shofna/app/src/main/res/layout/recycles_layout.xml" value="0.30572916666666666" />
         <entry key="..\:/Shofna/app/src/main/res/layout/register_activity.xml" value="0.22870370370370371" />
         <entry key="..\:/Shofna/app/src/main/res/layout/register_fragment.xml" value="0.18072916666666666" />
+        <entry key="..\:/Shofna/app/src/main/res/layout/register_web_view.xml" value="0.301025641025641" />
         <entry key="..\:/Shofna/app/src/main/res/layout/related_news_adapter.xml" value="0.22" />
         <entry key="..\:/Shofna/app/src/main/res/layout/shimmer_round_item.xml" value="0.16197916666666667" />
         <entry key="..\:/Shofna/app/src/main/res/layout/shimmer_viewpager.xml" value="0.1" />
@@ -57,7 +59,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15_PREVIEW" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

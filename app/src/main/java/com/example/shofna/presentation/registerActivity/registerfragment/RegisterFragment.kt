@@ -28,53 +28,62 @@ import kotlinx.android.synthetic.main.register_fragment.view.*
 import org.jetbrains.anko.support.v4.find
 
 
-class RegisterFragment: Fragment() { private val viewModel: MainViewModel by lazy {
-    ViewModelProviders.of(this).get(MainViewModel::class.java)
-}
-     val progressBar : ProgressBar ?=null
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+class RegisterFragment : Fragment() {
+    private val viewModel: MainViewModel by lazy {
+        ViewModelProviders.of(this).get(MainViewModel::class.java)
+    }
+    val progressBar: ProgressBar? = null
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
 
         val view = inflater.inflate(R.layout.register_fragment, container, false)
         var emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
 
-viewModel.processVisibility.observe(requireActivity()){
-    view.progress?.isVisible = it
-}
+        viewModel.processVisibility.observe(requireActivity()) {
+            view.progress?.isVisible = it
+        }
         view.register.setOnClickListener {
             val password = view.password?.text.toString()
             if (view.username.text.toString() == "" && view.mobile.text.toString() == "" && view.email.text.toString() == "") {
-                Toast.makeText(requireContext(),"الرجاء أكمل البيانات",Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "الرجاء أكمل البيانات", Toast.LENGTH_SHORT).show()
 
-            } else if(!view.email.text.toString().trim { it <= ' ' }.matches(emailPattern.toRegex())){
+            } else if (!view.email.text.toString().trim { it <= ' ' }
+                    .matches(emailPattern.toRegex())) {
                 Toast.makeText(requireContext(), "valid email address", Toast.LENGTH_SHORT).show()
 
-            }else
-
-            {
-                viewModel.GetRegisterData(view.username.text.toString(),view.mobile.text.toString(),view.email.text.toString(),password)
+            } else {
+                viewModel.GetRegisterData(
+                    view.username.text.toString(),
+                    view.mobile.text.toString(),
+                    view.email.text.toString(),
+                    password
+                )
 
             }
 
 
         }
 
-        viewModel.RegisterDataLD?.observe(requireActivity() , Observer {
+        viewModel.RegisterDataLD?.observe(requireActivity(), Observer {
             viewModel.processVisibility.value = true
 
-            if (it.success == false){
-                Toast.makeText(context , it.data?.message, Toast.LENGTH_SHORT).show()
+            if (it.success == false) {
+                Toast.makeText(context, it.data?.message, Toast.LENGTH_SHORT).show()
                 viewModel.processVisibility.value = false
 
-            }else {
+            } else {
                 viewModel.processVisibility.value = true
 
                 PreferenceHelper.setUsername(it.data?.username)
 
-                PreferenceHelper.setToken(it.data?.token,context)
+                PreferenceHelper.setToken(it.data?.token, context)
 
 //                PreferenceHelper.setUserId(it.data?.userid!!)
 
-                Toast.makeText(context , "تم انشاء حساب", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "تم انشاء حساب", Toast.LENGTH_SHORT).show()
                 viewModel.processVisibility.value = false
 
 //
@@ -88,7 +97,7 @@ viewModel.processVisibility.observe(requireActivity()){
         })
 
         viewModel.errorLivedat.observe(requireActivity(), Observer {
-            Toast.makeText(context ,it, Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
 
         })
         return view
